@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class Author
+class Admin
 {
     /**
      * Handle an incoming request.
@@ -17,10 +17,7 @@ class Author
      */
     public function handle(Request $request, Closure $next)
     {
-        abort_if(!(Auth::user()->isAuthor()
-            || Auth::user()->isAdmin()
-            || Auth::user()->isDeveloper()
-        ), 403);
+        abort_if(!(Auth::user()->isAdmin()), 403);
 
         return $next($request);
     }

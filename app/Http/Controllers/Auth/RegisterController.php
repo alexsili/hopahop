@@ -72,35 +72,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-//        $recaptchaResponse = false;
-//        $token = $request->get('g-recaptcha-response');
-//
-//        if ($token) {
-//            $client = new Client();
-//            $response = $client->post('https://www.google.com/recaptcha/api/siteverify', [
-//                'form_params' => [
-//                    'secret' => config('app.google_captcha_secret_key'),
-//                    'response' => $token,
-//                ]
-//            ]);
-//
-//            $result = json_decode($response->getBody()->getContents());
-//
-//
-//            if ($result->success) {
-//                $recaptchaResponse = true;
-//            } else {
-//
-//                return redirect()
-//                    ->back()
-//                    ->withInput()
-//                    ->with('error', 'Invalid captcha!');
-//
-//
-//            }
-//        }
-
-
         $user = User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],

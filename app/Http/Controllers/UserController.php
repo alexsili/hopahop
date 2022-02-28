@@ -210,14 +210,9 @@ class UserController extends Controller
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
         $user->email = $request->email;
-        $user->affiliation = $request->affiliation;
-        $user->research_field = $request->research_field;
         $user->country_id = $request->country;
         $user->save();
 
-        isset($request->userTypeReader) ? $user->addRole($request->userTypeReader) : $user->removeRole('reader');
-        isset($request->userTypeAuthor) ? $user->addRole($request->userTypeAuthor) : $user->removeRole('author');
-        isset($request->userTypeReviewer) ? $user->addRole($request->userTypeReviewer) : $user->removeRole('reviewer');
 
         return view('user.account')
             ->with('countries', $countries)
