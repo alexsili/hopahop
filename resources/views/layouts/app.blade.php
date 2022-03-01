@@ -39,8 +39,8 @@
     <div class="content-wrapper">
 
         @yield('content')
-
     </div>
+    @include('layouts.partials.footer')
 </div>
 
 <script type="text/javascript" src="{{ url('/js/propper.min.js') }}"></script>

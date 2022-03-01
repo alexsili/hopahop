@@ -13,9 +13,11 @@ use App\Models\Submission;
 use App\Models\SubmissionAuthor;
 use App\Models\SubmissionFile;
 use App\Models\SubmissionReviewer;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
@@ -30,7 +32,7 @@ class ArticleController extends Controller
     {
 
         $articles = Article::where('deleted_at', null)
-            ->get();
+            ->paginate(10);
 
         return view('article.index')
             ->with('articles', $articles);
@@ -46,7 +48,7 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $rules['title'] = 'required|string|max:255';
-        $rules['description'] = 'required|string|max:255';
+        $rules['description'] = 'required|string|max:50000';
         $rules['image'] = 'required|mimes:jpeg,jpg,bmp,png|max:30000';
 
         $validator = Validator::make($request->all(), $rules);
@@ -109,7 +111,7 @@ class ArticleController extends Controller
         $article = Article::find($id);
 
         $rules['title'] = 'required|string|max:255';
-        $rules['description'] = 'required|string|max:255';
+        $rules['description'] = 'required|string|max:50000';
         $rules['image'] = 'required|mimes:jpeg,jpg,bmp,png|max:30000';
 
         if ($article->image == null) {
@@ -118,7 +120,6 @@ class ArticleController extends Controller
             $rules['image'] = 'mimes:jpeg,jpg,bmp,png,pdf,doc,docx|max:30000';
         }
 
-//        dd($request->all());
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
@@ -147,19 +148,57 @@ class ArticleController extends Controller
         return redirect('/articles')->with('success', 'Article updated successfully.');
     }
 
+    public function deleteArticle($id)
+    {
+        if (Auth::user()->isAdmin()) { // only admin can delete users
+            $article = Article::findOrFail($id);;
+
+            if ($article) {
+                $article->delete();
+                return redirect()->route('articleIndex')
+                    ->with('success', 'Article deleted successfully');
+            }
+        } else {
+            return redirect()->route('articleIndex')
+                ->with('warning', 'You don\'t have permissions to delete this user');
+        }
+
+        return redirect()->route('articleIndex');
+
+    }
+
 
     public function deleteArticleImage($id)
     {
-        $article = Article::findOrFail($id);
 
-        if (!empty($article->image)) {
-            if (file_exists(public_path('uploads/images/' . $article->image . ''))) {
-                unlink(public_path('uploads/images/' . $article->image . ''));
+        if (Auth::user()->isAdmin()) { // only admin can delete users
+            $article = Article::findOrFail($id);;
+
+            if ($article->image) {
+                if (file_exists(public_path('uploads/images/' . $article->image . ''))) {
+                    unlink(public_path('uploads/images/' . $article->image . ''));
+                }
+                $article->image = null;
+                $article->save();
+                return redirect()->route('articleIndex')
+                    ->with('success', 'Article deleted successfully');
             }
-            $article->image = null;
-            $article->save();
+        } else {
+            return redirect()->route('articleIndex')
+                ->with('warning', 'You don\'t have permissions to delete this user');
         }
 
         return redirect('articles/' . $id . '/edit');
+
+
+//        if (!empty($article->image)) {
+//            if (file_exists(public_path('uploads/images/' . $article->image . ''))) {
+//                unlink(public_path('uploads/images/' . $article->image . ''));
+//            }
+//            $article->image = null;
+//            $article->save();
+//        }
+//
+//        return redirect('articles/' . $id . '/edit');
     }
 }

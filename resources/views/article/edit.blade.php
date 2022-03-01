@@ -98,8 +98,14 @@
                             * required fields
                         </div>
                         <div class="input-group mt-4 ">
+                            <button type="button" class="btn btn-danger "
+                                    data-bs-toggle="modal" data-bs-target="#deleteArticle">
+                                Delete Article
+                            </button>
+                        </div>
+                        <div class="input-group mt-4 ">
                             <div class="input-group w-1">
-                                <input type="submit" value="Submit" class="btn btn-primary pull-right">
+                                <input type="submit" value="Edit Aticle" class="btn btn-primary pull-right">
                             </div>
                         </div>
                     </div>
@@ -123,6 +129,31 @@
                 </div>
                 <div class="modal-footer">
                     <form action="{{ route('deleteArticleFile', $article->id)}}" method="POST">
+                        @method('post')
+                        @csrf
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="modal fade" id="deleteArticle" tabindex="-1" aria-labelledby="deleteArticleLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteArticleLabel">Delete Article</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure to delete this article?
+                </div>
+                <div class="modal-footer">
+                    <form action="{{ route('deleteArticle', $article->id)}}" method="POST">
                         @method('post')
                         @csrf
                         <button type="submit" class="btn btn-danger">Delete</button>

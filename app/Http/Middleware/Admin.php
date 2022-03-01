@@ -17,7 +17,7 @@ class Admin
      */
     public function handle(Request $request, Closure $next)
     {
-        abort_if(!(Auth::user()->isAdmin()), 403);
+        abort_if(!(Auth::user()->isAdmin() || Auth::user()->isModerator()), 403);
 
         return $next($request);
     }

@@ -32,20 +32,33 @@
                         @foreach ($articles as $article)
                             <tr>
                                 <td class="t-bold">{{$article->created_at->format('d-m-Y')}}</td>
-                                <td class="t-bold">{{$article->category_id}}</td>
+                                <td class="t-bold">{{$article->category->name}}</td>
                                 <td class="t-bold"><a
                                         href="{{route('articleEdit' ,$article->id)}}">{{$article->title}}</a></td>
                                 <td class="t-bold">{{$article->description}}</td>
-                                <td class="t-bold">{{$article->image}}</td>
+                                <td><img class="img-thumbnail" style="width: 200px; height: 150px;"
+                                         src="/uploads/images/{{ $article->image }}"
+                                         alt="{{ $article->image}}">
+                                </td>
                                 <td class="t-bold">{{ $article->views }}</td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="pagination-wrapper">
+                                {{$articles->links()}}
+                            </div>
+                        </div>
+                    </div>
                 @else
-                    <p class="text-center mt-4 pt-4">No submissions</p>
+                    <p class="text-center mt-4 pt-4">No Articles</p>
                 @endif
             </div>
         </div>
     </section>
+
+
+
 @endsection

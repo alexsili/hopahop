@@ -2,50 +2,64 @@
 
 @section('content')
 
-    <section class="mt-4 mb-10 pt-4 content container">
-        <div class="row">
-            <div class="col-12">
-                <h1 class="h4 mb-2">Active Posts
-                    <a class="btn btn-success float-end" href="{{ route('articleCreate') }}">Add Article</a>
-                </h1>
-
+    <section class="content container">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="{{url('/')}}">
+                        <img src="images/hopahop-home.jpg" class="d-block w-100" alt="...">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="{{route('songs')}}">
+                        <img src="images/songs.png" class="d-block w-100" alt="Songs">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="{{route('drawings')}}">
+                        <img src="images/drawings.jpg" class="d-block w-100" alt="...">
+                    </a>
+                </div>
             </div>
         </div>
+        <h4 class="text-center mt-3 mb-3">Latest Posts</h4>
 
-        @include('layouts.partials.messages')
-
-        <div class="row">
-            <div class="col-12">
-                @if($articles->count())
-                    <table class="table tbl-arls mt-4">
-                        <thead>
-                        <tr>
-                            <th scope="col">DATE</th>
-                            <th scope="col">CATEGORY</th>
-                            <th scope="col">TITLE</th>
-                            <th scope="col">DESCRIPTION</th>
-                            <th scope="col">IMAGE</th>
-                            <th scope="col">VIEWS</th>
-                        </tr>
-                        </thead>
-                        <tbody>
+        @if($articles->count())
+            <div class="row blog-entries">
+                <div class="col-md-12  main-content">
+                    <div class="row">
                         @foreach ($articles as $article)
-                            <tr>
-                                <td class="t-bold">{{$article->created_at->format('d-m-Y')}}</td>
-                                <td class="t-bold">{{$article->category_id}}</td>
-                                <td class="t-bold"><a
-                                        href="{{route('articleEdit' ,$article->id)}}">{{$article->title}}</a></td>
-                                <td class="t-bold">{{$article->description}}</td>
-                                <td class="t-bold">{{$article->image}}</td>
-                                <td class="t-bold">{{ $article->views }}</td>
-                            </tr>
+                            <div class="col-md-4">
+                                <a href="{{route('singleArticle', $article->id)}}" class="blog-entry element-animate"
+                                   data-animate-effect="fadeIn">
+                                    <img class="img-thumbnail" src="uploads/images/{{$article->image}}"
+                                         alt="{{$article->title}}">
+                                    <div class="blog-content-body">
+                                        <div class="post-meta">
+                                            <span class="mr-2">{{$article->updated_at?->format('Y-m-d')}}</span>
+                                            <span class="ml-2">
+                                            <span class="fa fa-eye">
+                                            </span>{{$article->views}}</span>
+                                            <span class="ml-2"><span class="fa fa-comments"></span> </span>
+                                        </div>
+                                        <h2>{{$article->title}}</h2>
+                                    </div>
+                                </a>
+                            </div>
                         @endforeach
-                        </tbody>
-                    </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="pagination-wrapper mt-3">
+                            {{$articles->links()}}
+                        </div>
+                    </div>
+                </div>
                 @else
-                    <p class="text-center mt-4 pt-4">No submissions</p>
+                    <p class="text-center mt-4 pt-4">No articles</p>
                 @endif
             </div>
-        </div>
+
     </section>
 @endsection

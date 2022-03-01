@@ -42,6 +42,13 @@
                         @endforeach
                         </tbody>
                     </table>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="pagination-wrapper">
+                                {{$articles->links()}}
+                            </div>
+                        </div>
+                    </div>
                 @else
                     <p class="text-center mt-4 pt-4">No submissions</p>
                 @endif

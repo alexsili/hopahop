@@ -30,10 +30,8 @@ class UserController extends Controller
      */
     public function index()
     {
-
-
         if (!auth()->user()->isAdmin()) {
-            return redirect()->route('dashboard')->with('warning', 'Sorry! You are not authorized to access this page');
+            return redirect('/')->with('warning', 'Sorry! You are not authorized to access this page');
         }
 
         $users = User::orderBy('first_name')->orderBy('last_name')->get();
@@ -49,6 +47,9 @@ class UserController extends Controller
      */
     public function create()
     {
+        if (!auth()->user()->isAdmin()) {
+            return redirect('/')->with('warning', 'Sorry! You are not authorized to access this page');
+        }
         $user = new User();
         $countries = Country::pluck('name', 'id')->toArray();
 
@@ -65,6 +66,10 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        if (!auth()->user()->isAdmin()) {
+            return redirect('/')->with('warning', 'Sorry! You are not authorized to access this page');
+        }
+
         $rules['first_name'] = 'required|string|max:255';
         $rules['last_name'] = 'required|string|max:255';
         $rules['country'] = 'required|string|max:255';
@@ -107,6 +112,10 @@ class UserController extends Controller
      */
     public function edit($hash)
     {
+        if (!auth()->user()->isAdmin()) {
+            return redirect('/')->with('warning', 'Sorry! You are not authorized to access this page');
+        }
+
         $countries = Country::pluck('name', 'id')->toArray();
         $user = User::where(DB::raw("MD5(id)"), $hash)->first();
 
@@ -128,6 +137,9 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if (!auth()->user()->isAdmin()) {
+            return redirect('/')->with('warning', 'Sorry! You are not authorized to access this page');
+        }
         $rules['first_name'] = 'required|string|max:255';
         $rules['last_name'] = 'required|string|max:255';
         $rules['country'] = 'required|string|max:255';

@@ -29,16 +29,24 @@ class PostController extends Controller
     public function index()
     {
         $articles = Article::where('deleted_at', null)
-            ->get();
+            ->paginate(9);
 
         return view('post.home')
             ->with('articles', $articles);
     }
 
+    public function singleArticle($id)
+    {
+        $article = Article::findOrFail($id);
+
+        return view('post.article')
+            ->with('article', $article);
+    }
+
     public function songs()
     {
         $articles = Article::where('deleted_at', null)
-            ->get();
+            ->paginate(9);
 
         return view('post.songs')
             ->with('articles', $articles);
@@ -47,7 +55,7 @@ class PostController extends Controller
     public function drawings()
     {
         $articles = Article::where('deleted_at', null)
-            ->get();
+            ->paginate(9);
 
         return view('post.home')
             ->with('articles', $articles);
