@@ -14,15 +14,7 @@
                             src="{{$article->video_url }}">
                     </iframe>
                     <div class="post-content-body">
-                        <p>{{$article->description}}</p>
-                    </div>
-                    <div class="pt-5">
-                        <p>Categories: <a href="{{route('songs')}}">Songs</a>, <a
-                                href="{{route('drawings')}}">Drawings</a>
-                    </div>
-                    <div class="post-meta">
-                        <span class="mr-2">{{$article->updated_at?->format('Y-m-d')}} </span> &bullet;
-                        <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                        <p class="text-center">{{$article->description}}</p>
                     </div>
 
 
@@ -156,7 +148,6 @@
 
                 </div>
             </div>
-        </div>
         </div>
     </section>
 

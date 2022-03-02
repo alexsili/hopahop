@@ -65,7 +65,7 @@
 
                                             <div class="col-md-12">
                                                 <select
-                                                    class="form-select @error('country') is-invalid @enderror"
+                                                    class="form-select @error('country') is-invalid @enderror select2"
                                                     name="country" id="country">
                                                     <option value="">Please select</option>
                                                     @foreach ($countries as $cid => $country)
@@ -142,7 +142,8 @@
 
                             <div class="row mb-2">
                                 <div class="col-md-12 text-center pt-3 pb-0 register-link-wrapper">
-                                    <a href="{{ route('login') }}"><strong>Already member of HopaHop? Login here!</strong></a>
+                                    <a href="{{ route('login') }}"><strong>Already member of HopaHop? Login
+                                            here!</strong></a>
                                 </div>
                             </div>
                         </form>
@@ -154,10 +155,16 @@
 @endsection
 
 @section('endjs')
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
     <script>
         $(document).ready(function () {
             $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('select').select2({});
         });
     </script>
 @endsection

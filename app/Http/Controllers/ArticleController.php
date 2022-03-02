@@ -49,6 +49,8 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $rules['title'] = 'required|string|max:255';
+        $rules['video_url'] = 'required|string|max:255';
+        $rules['category'] = 'required|string|max:255';
         $rules['description'] = 'required|string|max:50000';
         $rules['image'] = 'required|mimes:jpeg,jpg,bmp,png|max:30000';
 
@@ -65,6 +67,7 @@ class ArticleController extends Controller
         $article->category_id = $request->get('category');
         $article->title = $request->get('title');
         $article->description = $request->get('description');
+        $article->video_url = $request->get('video_url');
 
         if ($request->hasFile('image')) {
             $extension = $request->file('image')->getClientOriginalExtension();
@@ -112,6 +115,8 @@ class ArticleController extends Controller
         $article = Article::find($id);
 
         $rules['title'] = 'required|string|max:255';
+        $rules['video_url'] = 'required|string|max:255';
+        $rules['category'] = 'required|string|max:255';
         $rules['description'] = 'required|string|max:50000';
         $rules['image'] = 'required|mimes:jpeg,jpg,bmp,png|max:30000';
 
@@ -133,6 +138,7 @@ class ArticleController extends Controller
         $article->category_id = $request->get('category');
         $article->title = $request->get('title');
         $article->description = $request->get('description');
+        $article->video_url = $request->get('video_url');
 
         if ($request->hasFile('image')) {
             if (file_exists(public_path('uploads/images/' . $article->image . '')) && !empty($article->image)) {
@@ -191,15 +197,5 @@ class ArticleController extends Controller
 
         return redirect('articles/' . $id . '/edit');
 
-
-//        if (!empty($article->image)) {
-//            if (file_exists(public_path('uploads/images/' . $article->image . ''))) {
-//                unlink(public_path('uploads/images/' . $article->image . ''));
-//            }
-//            $article->image = null;
-//            $article->save();
-//        }
-//
-//        return redirect('articles/' . $id . '/edit');
     }
 }

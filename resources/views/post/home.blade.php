@@ -23,8 +23,8 @@
             </div>
 
             <div class="carousel-item">
-                <a href="{{route('sport')}}">
-                    <img src="images/carousel/hopahop-sport.jpg" class="d-block w-100" alt="Sport">
+                <a href="{{route('sports')}}">
+                    <img src="images/carousel/hopahop-sports.jpg" class="d-block w-100" alt="Sport">
                 </a>
             </div>
 
@@ -61,7 +61,7 @@
                            data-animate-effect="fadeIn">
                             <img class="img-thumbnail" src="images/carousel/hopahop-home.jpg"
                                  alt="songs">
-                            <p href="{{url('/')}}" class="text-center mt-2">
+                            <p class="text-center mt-2">
                                 <button class="btn btn-primary">HOME</button>
                             </p>
                         </a>
@@ -72,7 +72,7 @@
                            data-animate-effect="fadeIn">
                             <img class="img-thumbnail" src="images/carousel/hopahop-songs.jpg"
                                  alt="songs">
-                            <p href="{{route('songs')}}" class="text-center mt-2">
+                            <p class="text-center mt-2">
                                 <button class="btn btn-primary">SONGS</button>
                             </p>
                         </a>
@@ -83,18 +83,18 @@
                            data-animate-effect="fadeIn">
                             <img class="img-thumbnail" src="images/carousel/hopahop-drawings.jpg"
                                  alt="songs">
-                            <p href="{{route('drawings')}}" class="text-center mt-2">
+                            <p class="text-center mt-2">
                                 <button class="btn btn-primary">DRAWINGS</button>
                             </p>
                         </a>
 
                     </div>
                     <div class="col-md-4">
-                        <a href="{{route('sport')}}" class="blog-entry element-animate"
+                        <a href="{{route('sports')}}" class="blog-entry element-animate"
                            data-animate-effect="fadeIn">
-                            <img class="img-thumbnail" src="images/carousel/hopahop-sport.jpg"
+                            <img class="img-thumbnail" src="images/carousel/hopahop-sports.jpg"
                                  alt="songs">
-                            <p href="{{route('sport')}}" class="text-center mt-2">
+                            <p class="text-center mt-2">
                                 <button class="btn btn-primary">SPORT</button>
                             </p>
                         </a>
@@ -105,7 +105,7 @@
                            data-animate-effect="fadeIn">
                             <img class="img-thumbnail" src="images/carousel/hopahop-about.jpg"
                                  alt="songs">
-                            <p href="{{route('about')}}" class="text-center mt-2">
+                            <p class="text-center mt-2">
                                 <button class="btn btn-primary">ABOUT</button>
                             </p>
                         </a>
@@ -115,11 +115,10 @@
                            data-animate-effect="fadeIn">
                             <img class="img-thumbnail" src="images/carousel/hopahop-contact.jpg"
                                  alt="songs">
-                            <p href="{{route('drawings')}}" class="text-center mt-2">
+                            <p class="text-center mt-2">
                                 <button class="btn btn-primary">CONTACT</button>
                             </p>
                         </a>
-
                     </div>
                 </div>
             </div>

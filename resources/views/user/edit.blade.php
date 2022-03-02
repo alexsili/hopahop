@@ -33,7 +33,7 @@
                         <div class="col-12 col-md-6">
                             <input id="first_name" type="text"
                                    class="form-control {{ $errors->has('first_name') ? ' is-invalid' : '' }}"
-                                   name="first_name" value="{{ $user->first_name }}" required_>
+                                   name="first_name" value="{{ $user->first_name }}" required>
 
                             @if ($errors->has('first_name'))
                                 <span class="invalid-feedback">{{ $errors->first('first_name') }}</span>
@@ -47,7 +47,7 @@
                         <div class="col-12 col-md-6">
                             <input id="last_name" type="text"
                                    class="form-control {{ $errors->has('last_name') ? ' is-invalid' : '' }}"
-                                   name="last_name" value="{{ $user->last_name }}" required_>
+                                   name="last_name" value="{{ $user->last_name }}" required>
 
                             @if ($errors->has('last_name'))
                                 <span class="invalid-feedback">{{ $errors->first('last_name') }}</span>
@@ -61,7 +61,7 @@
                         <div class="col-12 col-md-6">
                             <input id="email" type="email"
                                    class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}"
-                                   name="email" value="{{ $user->email }}" required_>
+                                   name="email" value="{{ $user->email }}" required>
 
                             @if ($errors->has('email'))
                                 <span class="invalid-feedback">{{ $errors->first('email') }}</span>
@@ -92,7 +92,7 @@
                         <div class="col-12 col-md-6">
                             <input id="password" type="password"
                                    class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}"
-                                   name="password" autocomplete="false" required_>
+                                   name="password" autocomplete="false" required>
 
                             @if ($errors->has('password'))
                                 <span class="invalid-feedback">{{ $errors->first('password') }}</span>
@@ -105,7 +105,7 @@
 
                         <div class="col-12 col-md-6">
                             <input id="password-confirm" type="password" class="form-control"
-                                   name="password_confirmation" required_>
+                                   name="password_confirmation" required>
                         </div>
                     </div>
 

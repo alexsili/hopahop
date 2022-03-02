@@ -21,6 +21,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/auth.css') }}" rel="stylesheet">
+    <link href="{{ asset("/css/select2.min.css") }}" rel="stylesheet"/>
 </head>
 <body>
 <div id="app">
@@ -32,6 +33,7 @@
 <script type="text/javascript" src="{{ url('/js/fontawesome.all.min.js') }}"></script>
 <script type="text/javascript" src="{{ url('/js/bootstrap.min.js') }}"></script>
 <script type="text/javascript" src="{{ url('/js/jquery.js') }}"></script>
+<script type="text/javascript" src="{{ url('/js/select2.min.js') }}"></script>
 
 @yield('endjs')
 </body>

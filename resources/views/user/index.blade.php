@@ -60,7 +60,7 @@
                 @else
                     <div class="box">
                         <div class="box-body">
-                            No records found
+                            No users found
                         </div>
                     </div>
                 @endif

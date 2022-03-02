@@ -2,23 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Lib\Helper;
-use App\Mail\SubmissionNewAuthor;
-use App\Mail\SubmissionNewEditor;
 use App\Models\Article;
-use App\Models\Category;
-use App\Models\ChatMessage;
-use App\Models\Country;
 use App\Models\Personage;
-use App\Models\Submission;
-use App\Models\SubmissionAuthor;
-use App\Models\SubmissionFile;
-use App\Models\SubmissionReviewer;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
@@ -78,16 +63,18 @@ class PostController extends Controller
     {
         $articles = Article::where('category_id', 3)
             ->where('deleted_at', null)
+            ->orderBy('updated_at', 'DESC')
             ->paginate(9);
 
-        return view('post.sport')
+        return view('post.sports')
             ->with('articles', $articles);
     }
 
     public function about()
     {
         $articles = Personage::where('deleted_at', null)
-            ->paginate(4);
+            ->orderBy('updated_at', 'DESC')
+            ->get();
 
         return view('post.about')
             ->with('articles', $articles);
@@ -96,11 +83,7 @@ class PostController extends Controller
 
     public function contact()
     {
-        $articles = Article::where('deleted_at', null)
-            ->get();
-
-        return view('post.home')
-            ->with('articles', $articles);
+        return view('post.contact');
     }
 
 

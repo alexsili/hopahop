@@ -31,7 +31,7 @@
                         <tbody>
                         @foreach ($articles as $article)
                             <tr>
-                                <td class="t-bold">{{$article->created_at->format('d-m-Y')}}</td>
+                                <td class="t-bold">{{$article->updated_at->format('d-m-Y')}}</td>
                                 <td class="t-bold">{{$article->category->name ? : " "}}</td>
                                 <td class="t-bold"><a
                                         href="{{route('articleEdit' ,$article->id)}}">{{$article->title}}</a></td>

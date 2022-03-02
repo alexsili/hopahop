@@ -4,9 +4,7 @@
 
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <a href="{{route('drawings')}}">
                 <img src="images/carousel/hopahop-drawings.jpg" class="d-block w-100" alt="Drawings">
-            </a>
         </div>
     </div>
     <section class="content container">
@@ -23,13 +21,6 @@
                                     <img class="img-thumbnail" src="uploads/images/{{$article->image}}"
                                          alt="{{$article->title}}">
                                     <div class="blog-content-body">
-                                        <div class="post-meta">
-                                            <span class="mr-2">{{$article->updated_at?->format('Y-m-d')}}</span>
-                                            <span class="ml-2">
-                                                    <span class="fa fa-eye">
-                                                    </span>{{$article->views}}</span>
-                                            <span class="ml-2"><span class="fa fa-comments"></span> </span>
-                                        </div>
                                         <h2>{{$article->title}}</h2>
                                     </div>
                                 </a>

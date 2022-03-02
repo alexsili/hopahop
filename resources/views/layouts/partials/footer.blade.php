@@ -3,24 +3,21 @@
         <div class="row mb-5">
             <div class="col-md-4">
                 <p class="mb-4">
-                    <img src="../images/logo.png" alt="HopaHop" class="img-fluid">
+                    <img src="/images/logo.png" alt="HopaHop" class="img-fluid">
                 </p>
             </div>
             <div class="col-md-4">
-                <h3>Concact Us</h3>
-                <p>+40-737-815-136</p>
-                <p>hopahop.animations@gmail.com</p>
-                <p>Los Angeles, USA</p>
+                <h3><strong>Contact Us </strong></h3>
+                <p><strong> +40-737-815-136</strong></p>
+                <p><strong>hopahop.animations@gmail.com</strong></p>
+                <p><strong>Los Angeles, USA</strong></p>
             </div>
             <div class="col-md-4">
-                <h3>Social</h3>
+                <h3><strong>Social</strong></h3>
                 <ul class="list-unstyled footer-social">
-                    <li><a href="#"><span class="fa fa-twitter"></span> Twitter</a></li>
-                    <li><a href="#"><span class="fa-brands fa-facebook-f"></span> Facebook</a></li>
-                    <li><a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
-                    <li><a href="#"><span class="fa fa-vimeo"></span> Vimeo</a></li>
-                    <li><a href="#"><span class="fa fa-youtube-play"></span> Youtube</a></li>
-                    <li><a href="#"><span class="fa fa-snapchat"></span> Snapshot</a></li>
+                    <li><a href="#"><i class="fab fa-facebook-square share"></i><strong> Facebook </strong></a></li>
+                    <li><a href="#"> <i class="fab fa-instagram-square share"></i><strong> Instagram </strong></a></li>
+                    <li><a href="#"><i class="fab fa-youtube-square share"></i><strong> Youtube </strong></a></li>
                 </ul>
             </div>
 

@@ -9,7 +9,7 @@ Route::get('/dashboard', 'PostController@index');
 Route::get('/', 'PostController@index')->name('home');
 Route::get('/songs', 'PostController@songs')->name('songs');
 Route::get('/drawings', 'PostController@drawings')->name('drawings');
-Route::get('/sport', 'PostController@sport')->name('sport');
+Route::get('/sports', 'PostController@sport')->name('sports');
 Route::get('/about', 'PostController@about')->name('about');
 Route::get('/contact', 'PostController@contact')->name('contact');
 Route::get('/article/{id}', 'PostController@singleArticle')->name('singleArticle');

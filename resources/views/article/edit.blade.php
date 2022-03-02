@@ -49,6 +49,18 @@
                         </div>
                         <div class="form-row margins-8px w-80 mt-4 row">
                             <div class="col-6">
+                                <label for="video_url">Link Video* (embed)</label>
+                                <input id="video_url" type="text"
+                                       class="form-control {{ $errors->has('video_url') ? ' is-invalid' : '' }}"
+                                       name="video_url" placeholder="Video Url" value="{{$article->video_url }}"
+                                       required_>
+                                @if ($errors->has('video_url'))
+                                    <span class="invalid-feedback">{{ $errors->first('video_url') }}</span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-row margins-8px w-80 mt-4 row">
+                            <div class="col-6">
                                 <label for="description">Description*</label>
                                 <textarea
                                     rows="10"
@@ -97,15 +109,18 @@
                         <div class="required-fields text-right">
                             * required fields
                         </div>
-                        <div class="input-group mt-4 ">
-                            <button type="button" class="btn btn-danger "
-                                    data-bs-toggle="modal" data-bs-target="#deleteArticle">
-                                Delete Article
-                            </button>
-                        </div>
-                        <div class="input-group mt-4 ">
-                            <div class="input-group w-1">
-                                <input type="submit" value="Edit Aticle" class="btn btn-primary pull-right">
+                        <div class="row mt-5">
+                            <div class="col-6">
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#deleteArticle">
+                                    Delete
+                                </button>
+                            </div>
+                            <div class="col-6 text-end">
+                                <a href="{{ url('/articles') }}" class="btn btn-outline-secondary">Cancel</a>
+                                <button type="submit" class="btn btn-large btn-primary">
+                                    Save
+                                </button>
                             </div>
                         </div>
                     </div>

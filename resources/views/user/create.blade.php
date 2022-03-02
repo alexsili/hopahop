@@ -10,13 +10,12 @@
 
 @section('content')
 
-    <form class="form-horizontal" method="POST" action="{{ route('users.store') }}">
-        {{ csrf_field() }}
-        <section class="mt-4 mb-10 content container">
-            <h1 class="h2 mb-3 mt-4">
-                Users Management &raquo; Add user
-            </h1>
-
+    <section class="mt-4 mb-10 content container">
+        <h1 class="h2 mb-3 mt-4">
+            Users Management &raquo; Add user
+        </h1>
+        <form class="form-horizontal" method="POST" action="{{ route('users.store') }}">
+            {{ csrf_field() }}
             <div class="row mt-4">
                 <div class="col-md-6">
                     <div class="row mb-3">
@@ -25,7 +24,7 @@
                         <div class="col-md-6">
                             <input id="first_name" type="text"
                                    class="form-control {{ $errors->has('first_name') ? ' is-invalid' : '' }}"
-                                   name="first_name" value="{{ old('first_name') }}" required_>
+                                   name="first_name" value="{{ old('first_name') }}" required>
 
                             @if ($errors->has('first_name'))
                                 <span class="invalid-feedback">{{ $errors->first('first_name') }}</span>
@@ -39,7 +38,7 @@
                         <div class="col-md-6">
                             <input id="last_name" type="text"
                                    class="form-control {{ $errors->has('last_name') ? ' is-invalid' : '' }}"
-                                   name="last_name" value="{{ old('last_name') }}" required_>
+                                   name="last_name" value="{{ old('last_name') }}" required>
 
                             @if ($errors->has('last_name'))
                                 <span class="invalid-feedback">{{ $errors->first('last_name') }}</span>
@@ -53,7 +52,7 @@
                         <div class="col-md-6">
                             <input id="email" type="email"
                                    class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}"
-                                   name="email" value="{{ old('email') }}" required_>
+                                   name="email" value="{{ old('email') }}" required>
 
                             @if ($errors->has('email'))
                                 <span class="invalid-feedback">{{ $errors->first('email') }}</span>
@@ -64,8 +63,9 @@
                     <div class="row mb-3">
                         <label for="country" class="col-md-4 col-form-label">{{ __('Country') }}</label>
                         <div class="col-md-6">
-                            <select class="form-select @error('country') is-invalid @enderror select2" name="country"
-                                    id="country" required_>
+                            <select class="form-select @error('country') is-invalid @enderror select2"
+                                    name="country"
+                                    id="country" required>
                                 <option value="">Please select your country</option>
                                 @foreach($countries as $key => $name)
                                     <option value="{{$key}}">{{$name}}</option>
@@ -83,7 +83,7 @@
                         <div class="col-md-6">
                             <input id="password" type="password"
                                    class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}"
-                                   name="password" autocomplete="false" required_>
+                                   name="password" autocomplete="false" required>
 
                             @if ($errors->has('password'))
                                 <span class="invalid-feedback">{{ $errors->first('password') }}</span>
@@ -96,7 +96,7 @@
 
                         <div class="col-md-6">
                             <input id="password-confirm" type="password" class="form-control"
-                                   name="password_confirmation" required_>
+                                   name="password_confirmation" required>
                         </div>
                     </div>
 
@@ -138,7 +138,8 @@
                                             <input class="form-check-input" type="checkbox" value="moderator"
                                                    name="userTypeAuthor" id="userTypeModerator"
                                                    @if(old('userTypeModerator')=='moderator') checked="checked" @endif>
-                                            <label class="form-check-label" for="userTypeModerator">Moderator</label>
+                                            <label class="form-check-label"
+                                                   for="userTypeModerator">Moderator</label>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
@@ -170,9 +171,10 @@
                     </button>
                 </div>
             </div>
-        </section>
+        </form>
+    </section>
 
-    </form>
+    </section>
 @endsection
 
 @section('endjs')

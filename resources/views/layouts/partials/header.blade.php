@@ -27,8 +27,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{!! url('/sport') !!}">
-                        Sport
+                    <a class="nav-link" href="{!! url('/sports') !!}">
+                        Sports
                     </a>
                 </li>
                 <li class="nav-item">

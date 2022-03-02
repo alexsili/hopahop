@@ -4,13 +4,11 @@
 
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <a href="{{route('about')}}">
-                <img src="images/carousel/hopahop-about.jpg" class="d-block w-100" alt="About">
-            </a>
+            <img src="images/carousel/hopahop-about.jpg" class="d-block w-100" alt="About">
         </div>
     </div>
     <section class="content container">
-
+        <h4 class="text-center mt-5 mb-3">CHARACTERS</h4>
         @if($articles->count())
             <div class="row blog-entries">
                 <div class="col-md-12  main-content">
@@ -21,13 +19,6 @@
                                      alt="{{$article->title}}">
                             </div>
                         @endforeach
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="pagination-wrapper mt-3">
-                            {{$articles->links()}}
-                        </div>
                     </div>
                 </div>
                 @else

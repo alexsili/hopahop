@@ -18,7 +18,6 @@ class PersonageController extends Controller
 
     public function index()
     {
-
         $personages = Personage::where('deleted_at', null)
             ->orderBy('updated_at', 'DESC')
             ->paginate(10);
