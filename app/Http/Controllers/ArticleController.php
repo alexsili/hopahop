@@ -32,6 +32,7 @@ class ArticleController extends Controller
     {
 
         $articles = Article::where('deleted_at', null)
+            ->orderBy('updated_at', 'DESC')
             ->paginate(10);
 
         return view('article.index')

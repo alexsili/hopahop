@@ -5,7 +5,7 @@
     <div class="carousel-inner">
         <div class="carousel-item active">
             <a href="{{url('/')}}">
-                <img src="images/songs.png" class="d-block w-100" alt="Songs">
+                <img src="images/drawings.jpg" class="d-block w-100" alt="Drawings">
             </a>
         </div>
     </div>

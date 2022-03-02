@@ -7,23 +7,22 @@
         <div class="container">
 
             <div class="row blog-entries element-animate">
-
+                <h1 class="mb-4 text-center mt-4">{{$article->title}}</h1>
                 <div class="col-md-12  main-content">
-                    <img src="uploads/images/{{$article->image}}" alt="{{$article->title}}" class="img-fluid mb-5">
-                    <div class="post-meta">
-                        <span class="mr-2">{{$article->updated_at?->format('Y-m-d')}} </span> &bullet;
-                        <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-                    </div>
-                    <h1 class="mb-4">{{$article->title}}</h1>
-                    <a class="category mb-5" href="#">Food</a> <a class="category mb-5" href="#">Travel</a>
 
+                    <iframe width="1000" height="700"
+                            src="{{$article->video_url }}">
+                    </iframe>
                     <div class="post-content-body">
                         <p>{{$article->description}}</p>
-
                     </div>
                     <div class="pt-5">
                         <p>Categories: <a href="{{route('songs')}}">Songs</a>, <a
                                 href="{{route('drawings')}}">Drawings</a>
+                    </div>
+                    <div class="post-meta">
+                        <span class="mr-2">{{$article->updated_at?->format('Y-m-d')}} </span> &bullet;
+                        <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
                     </div>
 
 

@@ -27,6 +27,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{!! url('/sport') !!}">
+                        Sport
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{!! url('/about') !!}">
                         About
                     </a>
@@ -80,6 +85,7 @@
                                     <li><a class="dropdown-item nav-link" href="/users">Users</a></li>
                                     <li><a class="dropdown-item nav-link" href="/my-account">My Account</a></li>
                                     <li><a class="dropdown-item nav-link" href="/articles">Articles</a></li>
+                                    <li><a class="dropdown-item nav-link" href="/personages">Manage Personages</a></li>
                                 @elseif(auth()->user()->isModerator())
                                     <li><a class="dropdown-item nav-link" href="/my-account">My Account</a></li>
                                     <li><a class="dropdown-item nav-link" href="/articles">Articles</a></li>

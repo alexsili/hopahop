@@ -9,6 +9,7 @@ use App\Models\Article;
 use App\Models\Category;
 use App\Models\ChatMessage;
 use App\Models\Country;
+use App\Models\Personage;
 use App\Models\Submission;
 use App\Models\SubmissionAuthor;
 use App\Models\SubmissionFile;
@@ -28,24 +29,22 @@ class PostController extends Controller
 
     public function index()
     {
-        $articles = Article::where('deleted_at', null)
-            ->paginate(9);
-
-        return view('post.home')
-            ->with('articles', $articles);
+        return view('post.home');
     }
 
     public function singleArticle($id)
     {
         $article = Article::findOrFail($id);
 
-        return view('post.article')
+        return view('post.single-article')
             ->with('article', $article);
     }
 
     public function songs()
     {
-        $articles = Article::where('deleted_at', null)
+        $articles = Article::where('category_id', 1)
+            ->orderBy('updated_at', 'DESC')
+            ->where('deleted_at', null)
             ->paginate(9);
 
         return view('post.songs')
@@ -54,19 +53,31 @@ class PostController extends Controller
 
     public function drawings()
     {
-        $articles = Article::where('deleted_at', null)
+        $articles = Article::where('category_id', 2)
+            ->orderBy('updated_at', 'DESC')
+            ->where('deleted_at', null)
             ->paginate(9);
 
-        return view('post.home')
+        return view('post.drawings')
             ->with('articles', $articles);
     }
 
     public function about()
     {
-        $articles = Article::where('deleted_at', null)
-            ->get();
+        $articles = Personage::where('deleted_at', null)
+            ->paginate(9);
 
-        return view('post.home')
+        return view('post.about')
+            ->with('articles', $articles);
+    }
+
+    public function sport()
+    {
+        $articles = Article::where('category_id', 4)
+            ->where('deleted_at', null)
+            ->paginate(9);
+
+        return view('post.sport')
             ->with('articles', $articles);
     }
 
@@ -78,4 +89,6 @@ class PostController extends Controller
         return view('post.home')
             ->with('articles', $articles);
     }
+
+
 }

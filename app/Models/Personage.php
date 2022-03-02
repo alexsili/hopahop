@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Article extends Model
+class Personage extends Model
 {
     use  SoftDeletes;
 
-    protected $table = 'articles';
+    protected $table = 'personages';
 
     protected $fillable = array('*');
 
@@ -24,12 +24,6 @@ class Article extends Model
     public function comment()
     {
         return $this->belongsTo('App\Models\Comment');
-    }
-
-
-    public function authors()
-    {
-        return $this->hasMany(User::class)->orderBy('id');
     }
 
 }
