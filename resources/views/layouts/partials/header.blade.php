@@ -85,7 +85,7 @@
                                     <li><a class="dropdown-item nav-link" href="/users">Users</a></li>
                                     <li><a class="dropdown-item nav-link" href="/my-account">My Account</a></li>
                                     <li><a class="dropdown-item nav-link" href="/articles">Articles</a></li>
-                                    <li><a class="dropdown-item nav-link" href="/personages">Manage Personages</a></li>
+                                    <li><a class="dropdown-item nav-link" href="/personages">Characters</a></li>
                                 @elseif(auth()->user()->isModerator())
                                     <li><a class="dropdown-item nav-link" href="/my-account">My Account</a></li>
                                     <li><a class="dropdown-item nav-link" href="/articles">Articles</a></li>

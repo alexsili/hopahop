@@ -4,8 +4,8 @@
 
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <a href="{{url('/')}}">
-                <img src="images/drawings.jpg" class="d-block w-100" alt="Drawings">
+            <a href="{{route('sport')}}">
+                <img src="images/carousel/hopahop-sport.jpg" class="d-block w-100" alt="Sport">
             </a>
         </div>
     </div>

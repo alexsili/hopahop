@@ -243,4 +243,8 @@ return [
     'company_address' => env('COMPANY_ADDRESS'),
     'company_lat_log' => env('COMPANY_LAT_LOG'),
 
+    // images
+
+//    'home_image' => '/'
+
 ];

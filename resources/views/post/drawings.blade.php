@@ -4,14 +4,14 @@
 
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <a href="{{url('/')}}">
-                <img src="images/drawings.jpg" class="d-block w-100" alt="Drawings">
+            <a href="{{route('drawings')}}">
+                <img src="images/carousel/hopahop-drawings.jpg" class="d-block w-100" alt="Drawings">
             </a>
         </div>
     </div>
     <section class="content container">
 
-        <h4 class="text-center mt-5 mb-3">Latest Posts</h4>
+        <h4 class="text-center mt-5 mb-3">DRAWINGS</h4>
         @if($articles->count())
             <div class="row blog-entries">
                 <div class="col-md-12  main-content">

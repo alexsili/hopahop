@@ -40,6 +40,10 @@ class PostController extends Controller
             ->with('article', $article);
     }
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * category_id = 3 (songs)
+     */
     public function songs()
     {
         $articles = Article::where('category_id', 1)
@@ -51,6 +55,10 @@ class PostController extends Controller
             ->with('articles', $articles);
     }
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * category_id = 2 (drawings)
+     */
     public function drawings()
     {
         $articles = Article::where('category_id', 2)
@@ -62,24 +70,29 @@ class PostController extends Controller
             ->with('articles', $articles);
     }
 
-    public function about()
-    {
-        $articles = Personage::where('deleted_at', null)
-            ->paginate(9);
-
-        return view('post.about')
-            ->with('articles', $articles);
-    }
-
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * category_id = 3 (sport)
+     */
     public function sport()
     {
-        $articles = Article::where('category_id', 4)
+        $articles = Article::where('category_id', 3)
             ->where('deleted_at', null)
             ->paginate(9);
 
         return view('post.sport')
             ->with('articles', $articles);
     }
+
+    public function about()
+    {
+        $articles = Personage::where('deleted_at', null)
+            ->paginate(4);
+
+        return view('post.about')
+            ->with('articles', $articles);
+    }
+
 
     public function contact()
     {
