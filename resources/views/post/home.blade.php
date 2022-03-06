@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+    <style>
+
+    </style>
 
     <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -56,7 +59,7 @@
         <div class="row blog-entries">
             <div class="col-md-12  main-content">
                 <div class="row mt-5 mb-5">
-                    <div class="col-md-4">
+                    <div class="col-md-4  menu-hoover">
                         <a href="{{url('/')}}" class="blog-entry element-animate"
                            data-animate-effect="fadeIn">
                             <img class="img-thumbnail" src="images/carousel/hopahop-home.jpg"
@@ -65,9 +68,8 @@
                                 <button class="btn btn-primary">HOME</button>
                             </p>
                         </a>
-
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 menu-hoover">
                         <a href="{{route('songs')}}" class="blog-entry element-animate"
                            data-animate-effect="fadeIn">
                             <img class="img-thumbnail" src="images/carousel/hopahop-songs.jpg"
@@ -76,9 +78,8 @@
                                 <button class="btn btn-primary">SONGS</button>
                             </p>
                         </a>
-
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 menu-hoover">
                         <a href="{{route('drawings')}}" class="blog-entry element-animate"
                            data-animate-effect="fadeIn">
                             <img class="img-thumbnail" src="images/carousel/hopahop-drawings.jpg"
@@ -89,7 +90,7 @@
                         </a>
 
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 menu-hoover">
                         <a href="{{route('sports')}}" class="blog-entry element-animate"
                            data-animate-effect="fadeIn">
                             <img class="img-thumbnail" src="images/carousel/hopahop-sports.jpg"
@@ -100,7 +101,7 @@
                         </a>
 
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 menu-hoover">
                         <a href="{{route('about')}}" class="blog-entry element-animate"
                            data-animate-effect="fadeIn">
                             <img class="img-thumbnail" src="images/carousel/hopahop-about.jpg"
@@ -110,8 +111,8 @@
                             </p>
                         </a>
                     </div>
-                    <div class="col-md-4">
-                        <a href="{{route('songs')}}" class="blog-entry element-animate"
+                    <div class="col-md-4 menu-hoover">
+                        <a href="{{route('contact')}}" class="blog-entry element-animate"
                            data-animate-effect="fadeIn">
                             <img class="img-thumbnail" src="images/carousel/hopahop-contact.jpg"
                                  alt="songs">

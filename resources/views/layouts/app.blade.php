@@ -37,7 +37,6 @@
     @include('layouts.partials.header')
 
     <div class="content-wrapper">
-
         @yield('content')
     </div>
     @include('layouts.partials.footer')

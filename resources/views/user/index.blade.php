@@ -2,6 +2,7 @@
 
 @section('content')
 
+    @include('layouts.partials.messages')
     <section class="mt-4 mb-10 pt-4 content container">
         <h1 class="h2 mb-3">
             Users Management

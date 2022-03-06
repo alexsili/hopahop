@@ -21,4 +21,14 @@ class Comment extends Model
         return $this->hasMany(User::class)->orderBy('id');
     }
 
+    public function article()
+    {
+        return $this->belongsTo(Article::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
 }

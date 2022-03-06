@@ -4,24 +4,24 @@
 
     <div class="carousel-inner">
         <div class="carousel-item active">
-                <img src="images/carousel/hopahop-drawings.jpg" class="d-block w-100" alt="Drawings">
+            <img src="images/carousel/hopahop-drawings.jpg" class="d-block w-100" alt="Drawings">
         </div>
     </div>
     <section class="content container">
-
-        <h4 class="text-center mt-5 mb-3">DRAWINGS</h4>
         @if($articles->count())
-            <div class="row blog-entries">
-                <div class="col-md-12  main-content">
+            <div class="row blog-entries mt-2">
+                <div class="col-md-12 main-content">
                     <div class="row">
                         @foreach ($articles as $article)
-                            <div class="col-md-4">
-                                <a href="{{route('singleArticle', $article->id)}}" class="blog-entry element-animate"
+                            <div class="col-md-4 mt-4">
+                                <a href="{{route('downloadDrawingImage', $article->id)}}"
+                                   class="blog-entry element-animate"
                                    data-animate-effect="fadeIn">
+                                    <h2 class="text-center">{{$article->title}}</h2>
                                     <img class="img-thumbnail" src="uploads/images/{{$article->image}}"
                                          alt="{{$article->title}}">
-                                    <div class="blog-content-body">
-                                        <h2>{{$article->title}}</h2>
+                                    <div class="blog-content-body text-center mt-2">
+                                        <button class="btn btn-primary">Download</button>
                                     </div>
                                 </a>
                             </div>
@@ -38,7 +38,7 @@
                 @else
                     <p class="text-center mt-4 pt-4">No articles</p>
                 @endif
-            </div>
 
+            </div>
     </section>
 @endsection

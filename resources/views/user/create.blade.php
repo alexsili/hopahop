@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-
+@include('layouts.partials.messages')
     <section class="mt-4 mb-10 content container">
         <h1 class="h2 mb-3 mt-4">
             Users Management &raquo; Add user

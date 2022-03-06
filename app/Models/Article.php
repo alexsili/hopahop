@@ -23,7 +23,7 @@ class Article extends Model
 
     public function comment()
     {
-        return $this->belongsTo('App\Models\Comment');
+        return $this->hasMany(Comment::class)->orderBy('id');
     }
 
 

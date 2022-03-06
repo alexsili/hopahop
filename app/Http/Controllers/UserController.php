@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Country;
-use App\Models\Role;
-use App\Models\Showroom;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -12,9 +10,6 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
-use Imagine\Gd\Imagine;
-use Imagine\Image\Box;
-use Imagine\Image\ImageInterface;
 
 class UserController extends Controller
 {

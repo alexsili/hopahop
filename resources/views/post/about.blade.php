@@ -8,15 +8,14 @@
         </div>
     </div>
     <section class="content container">
-        <h4 class="text-center mt-5 mb-3">CHARACTERS</h4>
-        @if($articles->count())
-            <div class="row blog-entries">
-                <div class="col-md-12  main-content">
+        @if($personages->count())
+            <div class="row blog-entries mt-2">
+                <div class="col-md-12 main-content">
                     <div class="row">
-                        @foreach ($articles as $article)
+                        @foreach ($personages as $personage)
                             <div class="col-md-6 mt-4">
-                                <img class="img-thumbnail" src="uploads/personages/{{$article->image}}"
-                                     alt="{{$article->title}}">
+                                <img class="img-thumbnail" src="uploads/personages/{{$personage->image}}"
+                                     alt="{{$personage->title}}">
                             </div>
                         @endforeach
                     </div>
@@ -25,6 +24,5 @@
                     <p class="text-center mt-4 pt-4">No personages</p>
                 @endif
             </div>
-
     </section>
 @endsection

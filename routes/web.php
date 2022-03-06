@@ -12,7 +12,11 @@ Route::get('/drawings', 'PostController@drawings')->name('drawings');
 Route::get('/sports', 'PostController@sport')->name('sports');
 Route::get('/about', 'PostController@about')->name('about');
 Route::get('/contact', 'PostController@contact')->name('contact');
+Route::post('/contactMessage', 'PostController@contactMessage')->name('contactMessage');
 Route::get('/article/{id}', 'PostController@singleArticle')->name('singleArticle');
+Route::get('/download-image/{id}', 'PostController@downloadDrawingImage')->name('downloadDrawingImage');
+
+Route::post('/add-comment/{id}', 'CommentController@addComment')->name('addComment');
 
 
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -34,6 +38,20 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/{id}/edit', 'PersonageController@edit')->name('personageEdit');;
         Route::post('/delete-personage/{id}', 'PersonageController@deletePersonage')->name('deletePersonage');
         Route::post('/delete-personage-image/{id}', 'PersonageController@deletePersonageImageFile')->name('deletePersonageImageFile');
+    });
+
+
+    Route::group(['prefix' => 'messages', 'middleware' => 'admin'], function () {
+        Route::get('/', 'ContactMessagesController@index')->name('contactMessagesIndex');
+        Route::get('/show/{id}', 'ContactMessagesController@show')->name('contactMessagesShow');
+        Route::post('/delete-message/{id}', 'ContactMessagesController@deleteContactMessage')->name('deleteContactMessage');
+        Route::post('/response/{id}', 'ContactMessagesController@contactMessageResponse')->name('contactMessageResponse');
+    });
+
+    Route::group(['prefix' => 'comments', 'middleware' => 'admin'], function () {
+        Route::get('/', 'CommentController@index')->name('commentIndex');
+        Route::post('/approve-comment/{id}', 'CommentController@approveComment')->name('approveComment');
+        Route::post('/delete-message/{id}', 'CommentController@deleteContactMessage')->name('deleteCommentMessage');
     });
 
     Route::resource('/users', 'UserController');

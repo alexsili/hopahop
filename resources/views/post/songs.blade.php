@@ -7,24 +7,23 @@
         </div>
     </div>
     <section class="content container">
-        <h4 class="text-center mt-5 mb-3">SONGS</h4>
         @if($articles->count())
-            <div class="row blog-entries">
-                <div class="col-md-12  main-content">
+            <div class="row blog-entries mt-2">
+                <div class="col-md-12 main-content">
                     <div class="row">
                         @foreach ($articles as $article)
-                            <div class="col-md-4">
+                            <div class="col-md-4 mt-4">
                                 <a href="{{route('singleArticle', $article->id)}}" class="blog-entry element-animate"
                                    data-animate-effect="fadeIn">
-                                    <img class="img-thumbnail" src="uploads/images/{{$article->image}}"
-                                         alt="{{$article->title}}">
-                                    <div class="blog-content-body">
+                                    <div class="blog-content-body text-center">
                                         <h2>{{$article->title}}</h2>
                                     </div>
+                                    <img class="img-thumbnail" src="uploads/images/{{$article->image}}"
+                                         alt="{{$article->title}}">
                                 </a>
                             </div>
                         @endforeach
-                    </div>
+                    </div>x
                 </div>
                 <div class="row">
                     <div class="col-12">

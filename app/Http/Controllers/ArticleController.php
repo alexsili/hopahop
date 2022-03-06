@@ -2,23 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Lib\Helper;
-use App\Mail\SubmissionNewAuthor;
-use App\Mail\SubmissionNewEditor;
 use App\Models\Article;
 use App\Models\Category;
-use App\Models\ChatMessage;
-use App\Models\Country;
-use App\Models\Submission;
-use App\Models\SubmissionAuthor;
-use App\Models\SubmissionFile;
-use App\Models\SubmissionReviewer;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class ArticleController extends Controller

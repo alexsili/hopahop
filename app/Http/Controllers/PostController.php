@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Comment;
+use App\Models\Contact;
+use App\Models\Country;
 use App\Models\Personage;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
@@ -20,8 +25,10 @@ class PostController extends Controller
     public function singleArticle($id)
     {
         $article = Article::findOrFail($id);
+        $comments = Comment::where('article_id', $id)->get();
 
         return view('post.single-article')
+            ->with('comments', $comments)
             ->with('article', $article);
     }
 
@@ -70,21 +77,70 @@ class PostController extends Controller
             ->with('articles', $articles);
     }
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function about()
     {
-        $articles = Personage::where('deleted_at', null)
+        $personages = Personage::where('deleted_at', null)
             ->orderBy('updated_at', 'DESC')
             ->get();
 
         return view('post.about')
-            ->with('articles', $articles);
+            ->with('personages', $personages);
     }
 
-
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function contact()
     {
-        return view('post.contact');
+        $countries = Country::pluck('name', 'id');
+
+        return view('post.contact')
+            ->with('countries', $countries);
     }
 
+    public function contactMessage(Request $request)
+    {
+        $rules['name'] = 'required|string|max:255';
+        $rules['country'] = 'required|string|max:255';
+        $rules['message'] = 'required|string|max:50000';
+        $rules['email'] = 'required|email|unique:users,email,' . 0;
 
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) {
+            return redirect(route('contact'))
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $comment = new Contact();
+        $comment->name = $request->get('name');
+        $comment->phone = $request->get('phone');
+        $comment->email = $request->get('email');
+        $comment->message = $request->get('message');
+        $comment->country_id = $request->get('country');
+
+        $comment->save();
+
+        return redirect(route('contact'))->with('success', 'Message send successfully.');
+
+    }
+
+    public function downloadDrawingImage(Request $request, $id)
+    {
+        $article = Article::findOrFail($id);
+
+        $file = "uploads/images/" . $article->image . "";
+
+        $headers = ['Content-Type: image/jpeg'];
+
+        if (file_exists($file)) {
+            return \Response::download($file, "{$article->image}", $headers);
+        } else {
+            echo('File not found.');
+        }
+    }
 }

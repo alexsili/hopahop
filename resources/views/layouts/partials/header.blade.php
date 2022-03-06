@@ -82,6 +82,8 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 @if( auth()->user()->isAdmin())
+                                    <li><a class="dropdown-item nav-link" href="/messages">Messages</a></li>
+                                    <li><a class="dropdown-item nav-link" href="/comments">Comments</a></li>
                                     <li><a class="dropdown-item nav-link" href="/users">Users</a></li>
                                     <li><a class="dropdown-item nav-link" href="/my-account">My Account</a></li>
                                     <li><a class="dropdown-item nav-link" href="/articles">Articles</a></li>
