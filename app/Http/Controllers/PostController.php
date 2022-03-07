@@ -25,7 +25,9 @@ class PostController extends Controller
     public function singleArticle($id)
     {
         $article = Article::findOrFail($id);
-        $comments = Comment::where('article_id', $id)->get();
+        $comments = Comment::where('article_id', $id)
+            ->where('approved', 1)
+            ->get();
 
         return view('post.single-article')
             ->with('comments', $comments)

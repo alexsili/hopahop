@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col-12">
                 @if($personages->count())
-                    <table class="table tbl-arls mt-4">
+                    <table class="table tbl-hopahop mt-4">
                         <thead>
                         <tr>
                             <th scope="col">DATE</th>

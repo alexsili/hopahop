@@ -41,6 +41,11 @@
                         Contact
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{!! url('/shop') !!}">
+                        Shop
+                    </a>
+                </li>
             </ul>
 
             <!-- Right Side Of Navbar -->

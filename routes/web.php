@@ -16,6 +16,16 @@ Route::post('/contactMessage', 'PostController@contactMessage')->name('contactMe
 Route::get('/article/{id}', 'PostController@singleArticle')->name('singleArticle');
 Route::get('/download-image/{id}', 'PostController@downloadDrawingImage')->name('downloadDrawingImage');
 
+Route::get('/faq', function () {
+    return view('faq.faq');
+});
+Route::get('/terms', function () {
+    return view('faq.terms');
+});
+
+Route::get('/privacy', function () {
+    return view('faq.privacy');
+});
 Route::post('/add-comment/{id}', 'CommentController@addComment')->name('addComment');
 
 
@@ -51,7 +61,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::group(['prefix' => 'comments', 'middleware' => 'admin'], function () {
         Route::get('/', 'CommentController@index')->name('commentIndex');
         Route::post('/approve-comment/{id}', 'CommentController@approveComment')->name('approveComment');
-        Route::post('/delete-message/{id}', 'CommentController@deleteContactMessage')->name('deleteCommentMessage');
+        Route::post('/delete-comment/{id}', 'CommentController@deleteCommentMessage')->name('deleteCommentMessage');
     });
 
     Route::resource('/users', 'UserController');

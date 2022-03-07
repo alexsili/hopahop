@@ -13,11 +13,11 @@
                 <div class="col-md-12 main-content">
                     <div class="row">
                         @foreach ($articles as $article)
-                            <div class="col-md-4 mt-4">
+                            <div class="col-md-4 mt-4 menu-hoover">
                                 <a href="{{route('downloadDrawingImage', $article->id)}}"
                                    class="blog-entry element-animate"
                                    data-animate-effect="fadeIn">
-                                    <h2 class="text-center">{{$article->title}}</h2>
+                                    <h2>{{substr(" $article->title", 0, 25)}}</h2>
                                     <img class="img-thumbnail" src="uploads/images/{{$article->image}}"
                                          alt="{{$article->title}}">
                                     <div class="blog-content-body text-center mt-2">

@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Comment;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -47,7 +49,7 @@ class CommentController extends Controller
     }
 
 
-    public function deleteComment($id)
+    public function deleteCommentMessage($id)
     {
         if (Auth::user()->isAdmin()) { // only admin can delete users
             $comment = Comment::findOrFail($id);;
@@ -55,11 +57,11 @@ class CommentController extends Controller
             if ($comment) {
                 $comment->delete();
                 return redirect()->route('commentIndex')
-                    ->with('success', 'Comment message deleted successfully');
+                    ->with('success', 'Comment deleted successfully');
             }
         } else {
             return redirect()->route('commentIndex')
-                ->with('warning', 'You don\'t have permissions to delete personages');
+                ->with('warning', 'You don\'t have permissions to delete comments');
         }
 
         return redirect()->route('commentIndex');
@@ -97,10 +99,12 @@ class CommentController extends Controller
         $comment->email = $request->get('email');
         $comment->description = $request->get('message');
         $comment->article_id = $articleId;
+        $comment->approved = 0;
 
         $comment->save();
 
         return redirect(route('singleArticle', $articleId))->with('success', 'Comment send successfully.');
 
     }
+
 }

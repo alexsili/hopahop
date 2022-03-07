@@ -17,7 +17,7 @@
                                 <a href="{{route('singleArticle', $article->id)}}" class="blog-entry element-animate"
                                    data-animate-effect="fadeIn">
                                     <div class="blog-content-body text-center">
-                                        <h2>{{$article->title}}</h2>
+                                        <h2>{{substr(" $article->title", 0, 25)}}</h2>
                                     </div>
                                     <img class="img-thumbnail" src="uploads/images/{{$article->image}}"
                                          alt="{{$article->title}}">
