@@ -12,7 +12,7 @@
                 <div class="col-md-12 main-content">
                     <div class="row">
                         @foreach ($articles as $article)
-                            <div class="col-md-4 mt-4 menu-hoover">
+                            <div class="col-md-4 mt-5 menu-hoover">
                                 <a href="{{route('singleArticle', $article->id)}}" class="blog-entry element-animate"
                                    data-animate-effect="fadeIn">
                                     <div class="blog-content-body text-center">

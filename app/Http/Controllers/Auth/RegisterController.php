@@ -3,14 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Mail\RegisterAdmin;
-use App\Mail\RegisterUser;
 use App\Models\Country;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -60,7 +57,6 @@ class RegisterController extends Controller
             'country' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-//            'g-recaptcha-response.required' => ['Validation required.']
         ]);
     }
 
@@ -80,10 +76,6 @@ class RegisterController extends Controller
             'status' => 'I',
             'password' => Hash::make($data['password']),
         ]);
-
-//        Mail::to($user->email)->send(new RegisterUser($user));
-//
-//        Mail::to(env('MAIL_ADMIN'))->send(new RegisterAdmin($user));
 
         return $user;
     }

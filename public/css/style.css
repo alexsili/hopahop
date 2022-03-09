@@ -310,12 +310,11 @@ a.disabled-link {
 
 }
 
-/*.menu-hoover {*/
-/*    margin: 0.5% 1%;*/
-/*    transition: 0.5s all ease-in-out;*/
-/*    border-radius: 1.5%;*/
-/*}*/
+.menu-hoover {
+    transition: transform .2s; /* Animation */
+    margin: 0 auto;
+}
 
-/*.menu-hoover:hover {*/
-/*    transform: scale(1.15);*/
-/*}*/
+.menu-hoover:hover {
+    transform: scale(1.25); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}

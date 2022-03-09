@@ -13,7 +13,7 @@
                 <div class="col-md-12 main-content">
                     <div class="row">
                         @foreach ($personages as $personage)
-                            <div class="col-md-6 mt-4">
+                            <div class="col-md-6 mt-5 menu-hoover">
                                 <img class="img-thumbnail" src="uploads/personages/{{$personage->image}}"
                                      alt="{{$personage->title}}">
                             </div>
