@@ -54,7 +54,7 @@ class ArticleController extends Controller
         $article->user_id = Auth::user()->id;
         $article->category_id = $request->get('category');
         $article->title = $request->get('title');
-        $article->description = json_decode($request->get('description'));
+        $article->description = $request->get('description');
         $article->video_url = $request->get('video_url');
 
         if ($request->hasFile('image')) {
