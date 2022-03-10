@@ -45,7 +45,7 @@
 
             <div class="carousel-item">
                 <a href="{{route('shops')}}">
-                    <img src="images/carousel/hopahop-shop.jpg" class="d-block w-100" alt="Contact">
+                    <img src="images/carousel/hopahop-shop.jpg" class="d-block w-100" alt="Shop">
                 </a>
             </div>
         </div>
@@ -69,7 +69,7 @@
                         <a href="{{url('/')}}" class="blog-entry element-animate"
                            data-animate-effect="fadeIn">
                             <img class="img-thumbnail" src="images/home/hopahop-home.jpg"
-                                 alt="songs">
+                                 alt="Home">
                             <p class="text-center mt-2">
                                 <button class="btn btn-primary">HOME</button>
                             </p>
@@ -79,7 +79,7 @@
                         <a href="{{route('songs')}}" class="blog-entry element-animate"
                            data-animate-effect="fadeIn">
                             <img class="img-thumbnail" src="images/home/hopahop-songs.jpg"
-                                 alt="songs">
+                                 alt="Songs">
                             <p class="text-center mt-2">
                                 <button class="btn btn-primary">SONGS</button>
                             </p>
@@ -89,7 +89,7 @@
                         <a href="{{route('drawings')}}" class="blog-entry element-animate"
                            data-animate-effect="fadeIn">
                             <img class="img-thumbnail" src="images/home/hopahop-drawings.jpg"
-                                 alt="songs">
+                                 alt="Drawings">
                             <p class="text-center mt-2">
                                 <button class="btn btn-primary">DRAWINGS</button>
                             </p>
@@ -100,7 +100,7 @@
                         <a href="{{route('sports')}}" class="blog-entry element-animate"
                            data-animate-effect="fadeIn">
                             <img class="img-thumbnail" src="images/home/hopahop-sports.jpg"
-                                 alt="songs">
+                                 alt="Sports">
                             <p class="text-center mt-2">
                                 <button class="btn btn-primary">SPORT</button>
                             </p>
@@ -111,19 +111,19 @@
                         <a href="{{route('about')}}" class="blog-entry element-animate"
                            data-animate-effect="fadeIn">
                             <img class="img-thumbnail" src="images/home/hopahop-about.jpg"
-                                 alt="songs">
+                                 alt="About">
                             <p class="text-center mt-2">
                                 <button class="btn btn-primary">ABOUT</button>
                             </p>
                         </a>
                     </div>
                     <div class="col-md-4 menu-hoover">
-                        <a href="{{route('contact')}}" class="blog-entry element-animate"
+                        <a href="{{route('shops')}}" class="blog-entry element-animate"
                            data-animate-effect="fadeIn">
-                            <img class="img-thumbnail" src="images/home/hopahop-contact.jpg"
-                                 alt="songs">
+                            <img class="img-thumbnail" src="images/home/hopahop-shop.jpg"
+                                 alt="Shop">
                             <p class="text-center mt-2">
-                                <button class="btn btn-primary">CONTACT</button>
+                                <button class="btn btn-primary">SHOP</button>
                             </p>
                         </a>
                     </div>
