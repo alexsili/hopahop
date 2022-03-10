@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2022 at 02:57 PM
+-- Generation Time: Mar 10, 2022 at 04:40 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -32,7 +32,7 @@ CREATE TABLE `articles` (
   `user_id` int(11) DEFAULT NULL,
   `category_id` int(11) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
-  `description` text DEFAULT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
   `video_url` varchar(255) DEFAULT NULL,
   `views` int(11) DEFAULT 0,
@@ -76,7 +76,7 @@ CREATE TABLE `comments` (
   `name` varchar(255) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
   `article_id` int(11) NOT NULL,
-  `description` text DEFAULT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `approved` int(11) NOT NULL DEFAULT 0 COMMENT '0 - unapproved, 1 - approved',
@@ -97,7 +97,7 @@ CREATE TABLE `contacts` (
   `phone` varchar(255) DEFAULT NULL,
   `country_id` int(11) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `message` varchar(1024) DEFAULT NULL,
+  `message` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
