@@ -46,21 +46,6 @@ class ContactMessagesController extends Controller
             ->with('message', $message);
     }
 
-    public function contactMessageResponse(Request $request, $id)
-    {
-        $rules['message'] = 'required|string|max:50000';
-
-        $validator = Validator::make($request->all(), $rules);
-
-        if ($validator->fails()) {
-            return redirect(route('contactMessageResponse', $id))
-                ->withErrors($validator)
-                ->withInput();
-        }
-
-        dd('nu functioneaza inca');
-    }
-
 
     public function deleteContactMessage($id)
     {

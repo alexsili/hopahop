@@ -12,6 +12,7 @@ Route::get('/drawings', 'PostController@drawings')->name('drawings');
 Route::get('/sports', 'PostController@sport')->name('sports');
 Route::get('/about', 'PostController@about')->name('about');
 Route::get('/contact', 'PostController@contact')->name('contact');
+Route::get('/shops', 'PostController@shop')->name('shops');
 Route::post('/contactMessage', 'PostController@contactMessage')->name('contactMessage');
 Route::get('/article/{id}', 'PostController@singleArticle')->name('singleArticle');
 Route::get('/download-image/{id}', 'PostController@downloadDrawingImage')->name('downloadDrawingImage');
@@ -55,13 +56,23 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/', 'ContactMessagesController@index')->name('contactMessagesIndex');
         Route::get('/show/{id}', 'ContactMessagesController@show')->name('contactMessagesShow');
         Route::post('/delete-message/{id}', 'ContactMessagesController@deleteContactMessage')->name('deleteContactMessage');
-        Route::post('/response/{id}', 'ContactMessagesController@contactMessageResponse')->name('contactMessageResponse');
     });
 
     Route::group(['prefix' => 'comments', 'middleware' => 'admin'], function () {
         Route::get('/', 'CommentController@index')->name('commentIndex');
         Route::post('/approve-comment/{id}', 'CommentController@approveComment')->name('approveComment');
         Route::post('/delete-comment/{id}', 'CommentController@deleteCommentMessage')->name('deleteCommentMessage');
+    });
+
+
+    Route::group(['prefix' => 'shop', 'middleware' => 'admin'], function () {
+        Route::get('/', 'ShopController@index')->name('shopIndex');
+        Route::post('/', 'ShopController@store')->name('shopStore');
+        Route::put('/{id}', 'ShopController@update')->name('shopUpdate');
+        Route::get('/create', 'ShopController@create')->name('shopCreate');
+        Route::get('/{id}/edit', 'ShopController@edit')->name('shopEdit');;
+        Route::post('/delete-article/{id}', 'ShopController@deleteShopArticle')->name('deleteShopArticle');
+        Route::post('/delete-image/{id}', 'ShopController@deleteShopArticleImage')->name('deleteShopArticleImage');
     });
 
     Route::resource('/users', 'UserController');

@@ -7,6 +7,7 @@ use App\Models\Comment;
 use App\Models\Contact;
 use App\Models\Country;
 use App\Models\Personage;
+use App\Models\Shop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -144,5 +145,15 @@ class PostController extends Controller
         } else {
             echo('File not found.');
         }
+    }
+
+    public function shop()
+    {
+        $shops = Shop::where('deleted_at', null)
+            ->orderBy('updated_at', 'DESC')
+            ->paginate(9);
+
+        return view('post.shops')
+            ->with('shops', $shops);
     }
 }

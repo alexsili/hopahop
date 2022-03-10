@@ -66,15 +66,18 @@
                         <div class="required-fields text-right">
                             * required fields
                         </div>
-                        <div class="input-group mt-4 ">
-                            <button type="button" class="btn btn-danger "
-                                    data-bs-toggle="modal" data-bs-target="#deleteArticle">
-                                Delete Article
-                            </button>
-                        </div>
-                        <div class="input-group mt-4 ">
-                            <div class="input-group w-1">
-                                <input type="submit" value="Edit Aticle" class="btn btn-primary pull-right">
+                        <div class="row mt-5">
+                            <div class="col-6">
+                                <button type="button" class="btn btn-danger "
+                                        data-bs-toggle="modal" data-bs-target="#deleteArticle">
+                                    Delete Article
+                                </button>
+                            </div>
+                            <div class="col-6 text-end">
+                                <div class="input-group w-1">
+                                    <a href="{{ url('/personages') }}" class="btn btn-outline-secondary">Back</a>
+                                    <input type="submit" value="Edit Personage" class="btn btn-primary pull-right mx-3 px-3">
+                                </div>
                             </div>
                         </div>
                     </div>

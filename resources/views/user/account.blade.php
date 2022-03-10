@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-
+    @include('layouts.partials.messages')
     <section class="mt-4 mb-10 content container">
         <h1 class="h2 mb-3">
             My Account
         </h1>
         <div class="row">
             <div class="col-md-12">
-                @include('layouts.partials.messages')
+
                 <div class="box">
                     <div class="box-body">
                         <form class="form-horizontal" method="POST" action="/account-update">
@@ -63,9 +63,10 @@
                                             <label for="country"
                                                    class="col-md-4 col-form-label">{{ __('Country') }}</label>
                                             <div class="col-md-6">
-                                                <select class="form-select @error('country') is-invalid @enderror select2"
-                                                        name="country"
-                                                        id="country" required_>
+                                                <select
+                                                    class="form-select @error('country') is-invalid @enderror select2"
+                                                    name="country"
+                                                    id="country" required_>
                                                     <option value="">Please select your country</option>
                                                     @foreach($countries as $key => $name)
                                                         <option @if($key == $user->country_id) selected
@@ -83,7 +84,7 @@
 
                                 <div class="row mt-4">
                                     <div class="col-md-12 text-start">
-                                        <a href="{{ url('/users') }}" class="btn btn-outline-secondary">Cancel</a>
+                                        <a href="{{ url('/users') }}" class="btn btn-outline-secondary">Back</a>
                                         <button type="submit" class="btn btn-large btn-primary">
                                             Save
                                         </button>

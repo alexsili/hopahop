@@ -98,7 +98,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12 text-end">
-                                <a href="{{ url('/articles') }}" class="btn btn-outline-secondary">Cancel</a>
+                                <a href="{{ url('/articles') }}" class="btn btn-outline-secondary">Back</a>
                                 <button type="submit" class="btn btn-large btn-primary">
                                     Save
                                 </button>

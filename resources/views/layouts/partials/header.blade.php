@@ -32,6 +32,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{!! url('/shops') !!}">
+                        Shop
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{!! url('/about') !!}">
                         About
                     </a>
@@ -39,11 +44,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{!! url('/contact') !!}">
                         Contact
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{!! url('/shop') !!}">
-                        Shop
                     </a>
                 </li>
             </ul>
@@ -87,15 +87,18 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 @if( auth()->user()->isAdmin())
-                                    <li><a class="dropdown-item nav-link" href="/messages">Messages</a></li>
-                                    <li><a class="dropdown-item nav-link" href="/comments">Comments</a></li>
-                                    <li><a class="dropdown-item nav-link" href="/users">Users</a></li>
                                     <li><a class="dropdown-item nav-link" href="/my-account">My Account</a></li>
                                     <li><a class="dropdown-item nav-link" href="/articles">Articles</a></li>
                                     <li><a class="dropdown-item nav-link" href="/personages">Characters</a></li>
+                                    <li><a class="dropdown-item nav-link" href="/shop">Shop</a></li>
+                                    <li><a class="dropdown-item nav-link" href="/messages">Messages</a></li>
+                                    <li><a class="dropdown-item nav-link" href="/comments">Comments</a></li>
+                                    <li><a class="dropdown-item nav-link" href="/users">Users</a></li>
                                 @elseif(auth()->user()->isModerator())
                                     <li><a class="dropdown-item nav-link" href="/my-account">My Account</a></li>
                                     <li><a class="dropdown-item nav-link" href="/articles">Articles</a></li>
+                                    <li><a class="dropdown-item nav-link" href="/personages">Characters</a></li>
+                                    <li><a class="dropdown-item nav-link" href="/comments">Comments</a></li>
                                 @endif
                                 <li><a class="dropdown-item nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">Logout</a>

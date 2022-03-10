@@ -33,7 +33,7 @@
                     </div>
                 </div>
                 @else
-                    <p class="text-center mt-4 pt-4">No articles</p>
+                    <p class="text-center mt-4 pt-4">No song articles</p>
                 @endif
             </div>
 

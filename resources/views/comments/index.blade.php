@@ -38,9 +38,10 @@
                                     @endif
                                 </td>
                                 <td class="text-center">
-                                    <button class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#deleteCommentModal"> Delete
-                                    </button>
+                                    <form method="POST" action="{{ route( 'deleteCommentMessage', $comment->id)}}">
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger"> Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
@@ -59,29 +60,4 @@
             </div>
         </div>
     </section>
-
-    <!-- Modal -->
-    <div class="modal fade" id="deleteCommentModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="deleteModalLabel">Delete comment</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Are sure you want to delete this comment?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-{{--                    <form action="{{ route('deleteCommentMessage', 1}}" method="POST">--}}
-{{--                        @method('delete')--}}
-{{--                        @csrf--}}
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
 @endsection

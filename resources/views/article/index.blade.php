@@ -25,7 +25,6 @@
                             <th scope="col">TITLE</th>
                             <th scope="col">DESCRIPTION</th>
                             <th scope="col">IMAGE</th>
-                            <th scope="col">VIEWS</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -40,7 +39,6 @@
                                          src="/uploads/images/{{ $article->image }}"
                                          alt="{{ $article->image}}">
                                 </td>
-                                <td class="t-bold">{{ $article->views }}</td>
                             </tr>
                         @endforeach
                         </tbody>

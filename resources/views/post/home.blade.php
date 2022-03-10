@@ -42,6 +42,12 @@
                     <img src="images/carousel/hopahop-contact.jpg" class="d-block w-100" alt="Contact">
                 </a>
             </div>
+
+            <div class="carousel-item">
+                <a href="{{route('shops')}}">
+                    <img src="images/carousel/hopahop-shop.jpg" class="d-block w-100" alt="Contact">
+                </a>
+            </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
                 data-bs-slide="prev">
@@ -62,7 +68,7 @@
                     <div class="col-md-4  menu-hoover">
                         <a href="{{url('/')}}" class="blog-entry element-animate"
                            data-animate-effect="fadeIn">
-                            <img class="img-thumbnail" src="images/carousel/hopahop-home.jpg"
+                            <img class="img-thumbnail" src="images/home/hopahop-home.jpg"
                                  alt="songs">
                             <p class="text-center mt-2">
                                 <button class="btn btn-primary">HOME</button>
@@ -72,7 +78,7 @@
                     <div class="col-md-4 menu-hoover">
                         <a href="{{route('songs')}}" class="blog-entry element-animate"
                            data-animate-effect="fadeIn">
-                            <img class="img-thumbnail" src="images/carousel/hopahop-songs.jpg"
+                            <img class="img-thumbnail" src="images/home/hopahop-songs.jpg"
                                  alt="songs">
                             <p class="text-center mt-2">
                                 <button class="btn btn-primary">SONGS</button>
@@ -82,7 +88,7 @@
                     <div class="col-md-4 menu-hoover">
                         <a href="{{route('drawings')}}" class="blog-entry element-animate"
                            data-animate-effect="fadeIn">
-                            <img class="img-thumbnail" src="images/carousel/hopahop-drawings.jpg"
+                            <img class="img-thumbnail" src="images/home/hopahop-drawings.jpg"
                                  alt="songs">
                             <p class="text-center mt-2">
                                 <button class="btn btn-primary">DRAWINGS</button>
@@ -93,7 +99,7 @@
                     <div class="col-md-4 menu-hoover">
                         <a href="{{route('sports')}}" class="blog-entry element-animate"
                            data-animate-effect="fadeIn">
-                            <img class="img-thumbnail" src="images/carousel/hopahop-sports.jpg"
+                            <img class="img-thumbnail" src="images/home/hopahop-sports.jpg"
                                  alt="songs">
                             <p class="text-center mt-2">
                                 <button class="btn btn-primary">SPORT</button>
@@ -104,7 +110,7 @@
                     <div class="col-md-4 menu-hoover">
                         <a href="{{route('about')}}" class="blog-entry element-animate"
                            data-animate-effect="fadeIn">
-                            <img class="img-thumbnail" src="images/carousel/hopahop-about.jpg"
+                            <img class="img-thumbnail" src="images/home/hopahop-about.jpg"
                                  alt="songs">
                             <p class="text-center mt-2">
                                 <button class="btn btn-primary">ABOUT</button>
@@ -114,7 +120,7 @@
                     <div class="col-md-4 menu-hoover">
                         <a href="{{route('contact')}}" class="blog-entry element-animate"
                            data-animate-effect="fadeIn">
-                            <img class="img-thumbnail" src="images/carousel/hopahop-contact.jpg"
+                            <img class="img-thumbnail" src="images/home/hopahop-contact.jpg"
                                  alt="songs">
                             <p class="text-center mt-2">
                                 <button class="btn btn-primary">CONTACT</button>

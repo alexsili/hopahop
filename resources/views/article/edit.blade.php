@@ -117,7 +117,7 @@
                                 </button>
                             </div>
                             <div class="col-6 text-end">
-                                <a href="{{ url('/articles') }}" class="btn btn-outline-secondary">Cancel</a>
+                                <a href="{{ url('/articles') }}" class="btn btn-outline-secondary">Back</a>
                                 <button type="submit" class="btn btn-large btn-primary">
                                     Save
                                 </button>
@@ -143,12 +143,12 @@
                     Are you sure to delete this image?
                 </div>
                 <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <form action="{{ route('deleteArticleFile', $article->id)}}" method="POST">
                         @method('post')
                         @csrf
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

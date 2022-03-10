@@ -9,11 +9,12 @@
 @endsection
 
 @section('content')
-@include('layouts.partials.messages')
     <section class="mt-4 mb-10 content container">
         <h1 class="h2 mb-3 mt-4">
             Users Management &raquo; Add user
         </h1>
+
+        @include('layouts.partials.messages')
         <form class="form-horizontal" method="POST" action="{{ route('users.store') }}">
             {{ csrf_field() }}
             <div class="row mt-4">
@@ -165,7 +166,7 @@
 
             <div class="row">
                 <div class="col-md-12 text-end">
-                    <a href="{{ url('/users') }}" class="btn btn-outline-secondary">Cancel</a>
+                    <a href="{{ url('/users') }}" class="btn btn-outline-secondary">Back</a>
                     <button type="submit" class="btn btn-large btn-primary">
                         Save
                     </button>

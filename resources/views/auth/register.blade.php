@@ -34,7 +34,7 @@
                                                 <input id="first_name" type="text"
                                                        class="form-control @error('first_name') is-invalid @enderror"
                                                        name="first_name" value="{{ old('first_name') }}"
-                                                       required
+                                                       required_
                                                        autocomplete="first_name" autofocus>
 
                                                 @error('first_name')
@@ -50,7 +50,7 @@
                                             <div class="col-md-12">
                                                 <input id="last_name" type="text"
                                                        class="form-control @error('last_name') is-invalid @enderror"
-                                                       name="last_name" value="{{ old('last_name') }}" required
+                                                       name="last_name" value="{{ old('last_name') }}" required_
                                                        autocomplete="last_name">
 
                                                 @error('last_name')
@@ -93,7 +93,7 @@
                                             <div class="col-md-12">
                                                 <input id="email" type="email"
                                                        class="form-control @error('email') is-invalid @enderror"
-                                                       name="email" value="{{ old('email') }}" required
+                                                       name="email" value="{{ old('email') }}" required_
                                                        autocomplete="email">
 
                                                 @error('email')
@@ -109,7 +109,7 @@
                                             <div class="col-md-12">
                                                 <input id="password" type="password"
                                                        class="form-control @error('password') is-invalid @enderror"
-                                                       name="password" required autocomplete="new-password">
+                                                       name="password" required_ autocomplete="new-password">
                                                 @error('password')
                                                 <span class="invalid-feedback" role="alert">{{ $message }}</span>
                                                 @enderror
@@ -122,7 +122,7 @@
 
                                             <div class="col-md-12">
                                                 <input id="password-confirm" type="password" class="form-control"
-                                                       name="password_confirmation" required
+                                                       name="password_confirmation" required_
                                                        autocomplete="new-password">
                                             </div>
                                         </div>

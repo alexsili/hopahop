@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 @else
-                    <p class="text-center mt-4 pt-4">No personages</p>
+                    <p class="text-center mt-4 pt-4">No characters added</p>
                 @endif
             </div>
     </section>

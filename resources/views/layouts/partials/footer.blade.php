@@ -11,20 +11,25 @@
                 <p><strong> +40-737-815-136</strong></p>
                 <p><strong>hopahop.animations@gmail.com</strong></p>
                 <p><strong>Los Angeles, USA</strong></p>
-                <p><strong><a href="{{url('/terms')}}"> Term of use</a> <a href="{{url('/faq')}}"> FAQ</a> <a href="{{url('/privacy')}}"> Privacy policy</a> </strong></p>
+                <p><strong><a href="{{url('/terms')}}"> Term of use</a> <a href="{{url('/faq')}}"> FAQ</a> <a
+                            href="{{url('/privacy')}}"> Privacy policy</a> </strong></p>
             </div>
             <div class="col-md-4">
                 <h3><strong>Social</strong></h3>
                 <ul class="list-unstyled footer-social">
-                    <li><a href="https://www.facebook.com/1HopaHop/"><i
+                    <li><a href="https://www.facebook.com/1HopaHop/" target="_blank" rel="noopener noreferrer"><i
                                 class="fab fa-facebook-square share"></i><strong> Facebook </strong></a></li>
-                    <li><a href="https://www.instagram.com/hopahop_official/"> <i
+                    <li><a href="https://www.instagram.com/hopahop_official/" target="_blank" rel="noopener noreferrer">
+                            <i
                                 class="fab fa-instagram-square share"></i><strong> Instagram </strong></a></li>
-                    <li><a href="https://www.youtube.com/c/HopaHop"><i class="fab fa-youtube-square share"></i><strong>
+                    <li><a href="https://www.youtube.com/c/HopaHop" target="_blank" rel="noopener noreferrer"><i
+                                class="fab fa-youtube-square share"></i><strong>
                                 Youtube </strong></a></li>
-                    <li><a href="https://www.tiktok.com/@hopahop9"><i class="fab fa-tiktok share"></i><strong>
+                    <li><a href="https://www.tiktok.com/@hopahop9" target="_blank" rel="noopener noreferrer"><i
+                                class="fab fa-tiktok share"></i><strong>
                                 TikTok </strong></a></li>
-                    <li><a href="https://twitter.com/HopaHop9"><i class="fab fa-twitter share"></i><strong>
+                    <li><a href="https://twitter.com/HopaHop9" target="_blank" rel="noopener noreferrer"><i
+                                class="fab fa-twitter share"></i><strong>
                                 Twitter </strong></a></li>
                 </ul>
             </div>

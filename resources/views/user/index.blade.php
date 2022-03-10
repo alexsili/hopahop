@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
-    @include('layouts.partials.messages')
     <section class="mt-4 mb-10 pt-4 content container">
         <h1 class="h2 mb-3">
             Users Management
@@ -25,8 +23,6 @@
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Roles</th>
-                                    <th>Affiliation</th>
-                                    <th>Research Field</th>
                                     <th>Country</th>
                                     <th>Status</th>
                                 </tr>
@@ -40,9 +36,7 @@
                                         </td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ ucfirst($user->roles) }}</td>
-                                        <td>{{ $user->affiliation }}</td>
-                                        <td>{{ $user->research_field }}</td>
-                                        <td>{{ $user->country->name }}</td>
+                                        <td>{{ $user->country?->name }}</td>
                                         <td>
                                             @if($user->status=='A')
                                                 Active

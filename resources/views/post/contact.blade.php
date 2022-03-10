@@ -2,11 +2,6 @@
 
 @section('content')
 
-    {{--    <div class="carousel-inner">--}}
-    {{--        <div class="carousel-item active">--}}
-    {{--            <img src="images/carousel/hopahop-about.jpg" class="d-block w-100" alt="About">--}}
-    {{--        </div>--}}
-    {{--    </div>--}}
     <section class="content container">
         @include('layouts.partials.messages')
 

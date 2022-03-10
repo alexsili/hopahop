@@ -178,7 +178,7 @@
                     </button>
                 </div>
                 <div class="col-6 text-end">
-                    <a href="{{ url('/users') }}" class="btn btn-outline-secondary">Cancel</a>
+                    <a href="{{ url('/users') }}" class="btn btn-outline-secondary">Back</a>
                     <button type="submit" class="btn btn-large btn-primary">
                         Save
                     </button>
@@ -199,13 +199,12 @@
                     Are sure you want to delete the user {{$user->fullName}} ?
                 </div>
                 <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <form action="{{ route('users.destroy', md5($user->id))}}" method="POST">
                         @method('delete')
                         @csrf
-                        <button type="submit" class="btn btn-danger" style="width: 120px;">Delete</button>
+                        <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-
                 </div>
             </div>
         </div>

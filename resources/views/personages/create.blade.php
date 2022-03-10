@@ -53,8 +53,9 @@
                             * required fields
                         </div>
                         <div class="input-group mt-4 ">
-                            <div class="input-group w-1">
-                                <input type="submit" value="Submit" class="btn btn-primary pull-right">
+                            <div class="input-group ">
+                                <a href="{{ url('/personages') }}" class="btn btn-outline-secondary">Back</a>
+                                <input type="submit" value="Add Character" class="btn btn-primary pull-right mx-3 px-3">
                             </div>
                         </div>
                     </div>
