@@ -1,0 +1,43 @@
+body {
+    background: url('/images/bg.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: #212529;
+    font-family: "Helvetica Neue";
+    font-size: 16px;
+}
+
+#login .card {
+    border: 0;
+    top: 10em;
+}
+.card {
+    border: 0;
+}
+.card img.logo {
+    width: 60%
+}
+
+.card label {
+    font-size: 16px;
+}
+.card .btn-link {
+    font-size: 12px;
+    text-decoration: none;
+}
+.card .register-link-wrapper {
+    border-top: 1px solid #E0E0E0;
+}
+.card .register-link-wrapper a {
+    text-decoration: none;
+}
+h3 {
+    font-size: 24px;
+    color: #666666;
+    font-weight: normal;
+}
+.font12 {
+    font-size: 12px;
+}

@@ -1,24 +1,81 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Auth::routes(['verify' => true]);
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/dashboard', 'PostController@index');
+Route::get('/', 'PostController@index')->name('home');
+Route::get('/songs', 'PostController@songs')->name('songs');
+Route::get('/drawings', 'PostController@drawings')->name('drawings');
+Route::get('/sports', 'PostController@sport')->name('sports');
+Route::get('/about', 'PostController@about')->name('about');
+Route::get('/contact', 'PostController@contact')->name('contact');
+Route::get('/shops', 'PostController@shop')->name('shops');
+Route::post('/contactMessage', 'PostController@contactMessage')->name('contactMessage');
+Route::get('/article/{id}', 'PostController@singleArticle')->name('singleArticle');
+Route::get('/download-image/{id}', 'PostController@downloadDrawingImage')->name('downloadDrawingImage');
+
+Route::get('/faq', function () {
+    return view('faq.faq');
+});
+Route::get('/terms', function () {
+    return view('faq.terms');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/privacy', function () {
+    return view('faq.privacy');
+});
+Route::post('/add-comment/{id}', 'CommentController@addComment')->name('addComment');
 
-require __DIR__.'/auth.php';
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::group(['prefix' => 'articles', 'middleware' => 'admin'], function () {
+        Route::get('/', 'ArticleController@index')->name('articleIndex');
+        Route::post('/', 'ArticleController@store')->name('articleStore');
+        Route::put('/{id}', 'ArticleController@update')->name('articleUpdate');
+        Route::get('/create', 'ArticleController@create')->name('articleCreate');
+        Route::get('/{id}/edit', 'ArticleController@edit')->name('articleEdit');;
+        Route::post('/delete-article/{id}', 'ArticleController@deleteArticle')->name('deleteArticle');
+        Route::post('/delete-image/{id}', 'ArticleController@deleteArticleImage')->name('deleteArticleFile');
+    });
+
+    Route::group(['prefix' => 'personages', 'middleware' => 'admin'], function () {
+        Route::get('/', 'PersonageController@index')->name('personageIndex');
+        Route::post('/', 'PersonageController@store')->name('personageStore');
+        Route::put('/{id}', 'PersonageController@update')->name('personageUpdate');
+        Route::get('/create', 'PersonageController@create')->name('personageCreate');
+        Route::get('/{id}/edit', 'PersonageController@edit')->name('personageEdit');;
+        Route::post('/delete-personage/{id}', 'PersonageController@deletePersonage')->name('deletePersonage');
+        Route::post('/delete-personage-image/{id}', 'PersonageController@deletePersonageImageFile')->name('deletePersonageImageFile');
+    });
+
+
+    Route::group(['prefix' => 'messages', 'middleware' => 'admin'], function () {
+        Route::get('/', 'ContactMessagesController@index')->name('contactMessagesIndex');
+        Route::get('/show/{id}', 'ContactMessagesController@show')->name('contactMessagesShow');
+        Route::post('/delete-message/{id}', 'ContactMessagesController@deleteContactMessage')->name('deleteContactMessage');
+    });
+
+    Route::group(['prefix' => 'comments', 'middleware' => 'admin'], function () {
+        Route::get('/', 'CommentController@index')->name('commentIndex');
+        Route::post('/approve-comment/{id}', 'CommentController@approveComment')->name('approveComment');
+        Route::post('/delete-comment/{id}', 'CommentController@deleteCommentMessage')->name('deleteCommentMessage');
+    });
+
+
+    Route::group(['prefix' => 'shop', 'middleware' => 'admin'], function () {
+        Route::get('/', 'ShopController@index')->name('shopIndex');
+        Route::post('/', 'ShopController@store')->name('shopStore');
+        Route::put('/{id}', 'ShopController@update')->name('shopUpdate');
+        Route::get('/create', 'ShopController@create')->name('shopCreate');
+        Route::get('/{id}/edit', 'ShopController@edit')->name('shopEdit');;
+        Route::post('/delete-article/{id}', 'ShopController@deleteShopArticle')->name('deleteShopArticle');
+        Route::post('/delete-image/{id}', 'ShopController@deleteShopArticleImage')->name('deleteShopArticleImage');
+    });
+
+    Route::resource('/users', 'UserController');
+    Route::get('/my-account', 'UserController@myAccount')->name('myAccount');
+    Route::post('/account-update', 'UserController@accountUpdate')->name('myAccountUpdate');
+});

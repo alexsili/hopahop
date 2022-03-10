@@ -1,36 +1,55 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>{{ config('app.name') }}</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="token" content="{{ csrf_token() }}"/>
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="icon" href="{{ asset("/images/favicon.ico") }}"/>
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    <link href="{{ asset("/css/bootstrap.min.css") }}" rel="stylesheet"/>
+    <link href="{{ asset("/css/select2.min.css") }}" rel="stylesheet"/>
+    <link href="{{ asset("/css/fontawesome.all.min.css") }}" rel="stylesheet"/>
+    <link href="{{ asset("/css/app.css") }}" rel="stylesheet"/>
+    <link href="{{ asset("/css/style.css") }}" rel="stylesheet"/>
 
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-        <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
+    <link href="//db.onlinewebfonts.com/c/9da41c570d5a221cb2486d78769a076d?family=Neue+Helvetica" rel="stylesheet"
+          type="text/css"/>
 
-            <!-- Page Heading -->
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
+    @yield('topcss')
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-        </div>
-    </body>
+    @section('topjs')
+    @endsection
+
+    @yield('topjs')
+</head>
+
+<body>
+<div class="wrapper">
+
+    @include('layouts.partials.header')
+
+    <div class="content-wrapper">
+        @yield('content')
+    </div>
+    @include('layouts.partials.footer')
+</div>
+
+<script type="text/javascript" src="{{ url('/js/propper.min.js') }}"></script>
+<script type="text/javascript" src="{{ url('/js/fontawesome.all.min.js') }}"></script>
+<script type="text/javascript" src="{{ url('/js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ url('/js/jquery.js') }}"></script>
+<script type="text/javascript" src="{{ url('/js/select2.min.js') }}"></script>
+
+
+@yield('endjs')
+
+</body>
 </html>
