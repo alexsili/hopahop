@@ -3,7 +3,7 @@
         <div class="row mb-5">
             <div class="col-md-4">
                 <p class="mb-4">
-                    <img src="/images/logo.png" alt="HopaHop" class="img-fluid">
+                    <a href="{!! url('/') !!}"> <img src="/images/logo.png" alt="HopaHop" class="img-fluid"></a>
                 </p>
             </div>
             <div class="col-md-4">
