@@ -1,14 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('layouts.partials.messages')
     <section class="mt-4 mb-10 content container">
         <h1 class="h2 mb-3">
             My Account
         </h1>
         <div class="row">
             <div class="col-md-12">
-
+                @include('layouts.partials.messages')
                 <div class="box">
                     <div class="box-body">
                         <form class="form-horizontal" method="POST" action="/account-update">

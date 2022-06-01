@@ -211,8 +211,6 @@ class UserController extends Controller
 
     public function accountUpdate(Request $request)
     {
-        $countries = Country::pluck('name', 'id')->toArray();
-
         $user = auth()->user();
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
@@ -220,9 +218,6 @@ class UserController extends Controller
         $user->country_id = $request->country;
         $user->save();
 
-
-        return view('user.account')
-            ->with('countries', $countries)
-            ->with('user', $user);
+        return redirect()->route('myAccount')->with('success', 'Account updated successfully.');
     }
 }

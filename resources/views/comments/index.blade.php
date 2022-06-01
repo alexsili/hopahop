@@ -23,10 +23,10 @@
                         @foreach ($comments as $comment)
                             <tr>
                                 <td class="t-bold">{{$comment->updated_at?->format('d-m-Y') ? : ''}}</td>
-                                <td class="t-bold">{{$comment->name}}</td>
-                                <td class="t-bold">{{$comment->description}}</td>
-                                <td class="t-bold">{{$comment->article->title}}</td>
-                                <td class="t-bold">{{$comment->email}}</td>
+                                <td class="t-bold">{{$comment->name ?? '-'}}</td>
+                                <td class="t-bold">{{$comment->description ?? '-'}}</td>
+                                <td class="t-bold">{{$comment->article->title ?? '-'}}</td>
+                                <td class="t-bold">{{$comment->email ?? '-'}}</td>
                                 <td class="t-bold text-center">
                                     @if($comment->approved == 1)
                                         <p> Approved </p>
