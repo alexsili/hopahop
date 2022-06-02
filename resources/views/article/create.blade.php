@@ -69,7 +69,6 @@
                                     type="text"
                                     class="form-control rounded-0 {{ $errors->has('description') ? ' is-invalid' : '' }}"
                                     name="description"
-                                    value="{{ old('description') }}"
                                     required> {{ old('description') }}
                                 </textarea>
                                 @if ($errors->has('description'))
