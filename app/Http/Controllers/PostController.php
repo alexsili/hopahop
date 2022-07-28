@@ -8,6 +8,7 @@ use App\Models\Contact;
 use App\Models\Country;
 use App\Models\Personage;
 use App\Models\Shop;
+use App\Models\SocialNetwork;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -25,6 +26,7 @@ class PostController extends Controller
 
     public function singleArticle($id)
     {
+        $socialNetworks =  SocialNetwork::where('deleted_at', null)->get();
         $article = Article::findOrFail($id);
         $comments = Comment::where('article_id', $id)
             ->where('approved', 1)
@@ -32,6 +34,7 @@ class PostController extends Controller
 
         return view('post.single-article')
             ->with('comments', $comments)
+            ->with('socialNetworks', $socialNetworks)
             ->with('article', $article);
     }
 

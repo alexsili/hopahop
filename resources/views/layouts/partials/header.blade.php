@@ -93,6 +93,7 @@
                                     <li><a class="dropdown-item nav-link" href="/shop">Shop</a></li>
                                     <li><a class="dropdown-item nav-link" href="/messages">Messages</a></li>
                                     <li><a class="dropdown-item nav-link" href="/comments">Comments</a></li>
+                                    <li><a class="dropdown-item nav-link" href="/social-network">Social Networks</a></li>
                                     <li><a class="dropdown-item nav-link" href="/users">Users</a></li>
                                 @elseif(auth()->user()->isModerator())
                                     <li><a class="dropdown-item nav-link" href="/my-account">My Account</a></li>

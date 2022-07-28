@@ -13,13 +13,11 @@
                         <h1 class="mb-4 mt-4">{{ $article->title}}</h1>
                         <p style="text-align: justify">{{$article->description}}</p>
                         <p>
-                            Subscribe for new videos: <a href="https://www.youtube.com/c/HopaHop?sub_confirmation=1" target="_blank"> https://www.youtube.com/c/HopaHop?sub_confirmation=1 </a>
-                            <br>
-                            Facebook: <a href="https://www.facebook.com/HopaHop-Nursery-Rhymes-100656955132329" target="_blank"> https://www.facebook.com/HopaHop-Nursery-Rhymes-100656955132329 </a>
-                            <br>
-                            Twitter: <a href="https://twitter.com/HopaHop9" target="_blank"> https://twitter.com/HopaHop9 </a>
-                            <br>
-                            TikTok: <a href="https://www.tiktok.com/@hopahop9" target="_blank">https://www.tiktok.com/@hopahop9</a>
+                            @foreach($socialNetworks as $socialNetwork)
+                                {{$socialNetwork->name}}: <a href="{{$socialNetwork->url}}"
+                                                             target="_blank">{{$socialNetwork->url}}</a>
+                                <br>
+                            @endforeach
                         </p>
                     </div>
                     <div class="pt-5">
