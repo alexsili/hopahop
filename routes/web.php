@@ -78,4 +78,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/users', 'UserController');
     Route::get('/my-account', 'UserController@myAccount')->name('myAccount');
     Route::post('/account-update', 'UserController@accountUpdate')->name('myAccountUpdate');
+
+    Route::group(['prefix' => 'social-network', 'middleware' => 'admin'], function () {
+        Route::get('/', 'SocialNetworkController@index')->name('SocialNetworkIndex');
+        Route::post('/', 'SocialNetworkController@store')->name('SocialNetworkStore');
+        Route::put('/{id}', 'SocialNetworkController@update')->name('SocialNetworkUpdate');
+        Route::get('/create', 'SocialNetworkController@create')->name('SocialNetworkCreate');
+        Route::get('/{id}/edit', 'SocialNetworkController@edit')->name('SocialNetworkEdit');;
+        Route::post('/delete-social-network/{id}', 'SocialNetworkController@deleteSocialNetwork')->name('deleteSocialNetwork');
+    });
 });
