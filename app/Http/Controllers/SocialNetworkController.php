@@ -95,7 +95,7 @@ class SocialNetworkController extends Controller
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
-            return redirect('social-network/' . $socialNetwork . '/edit')
+            return redirect()->back()
                 ->withErrors($validator)
                 ->withInput();
         }
