@@ -187,5 +187,4 @@
             $('select').select2({});
         });
     </script>
-    <script type="text/javascript" src="{{ url('/js/submission.js') }}"></script>
 @endsection

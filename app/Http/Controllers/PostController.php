@@ -26,8 +26,12 @@ class PostController extends Controller
 
     public function singleArticle($id)
     {
-        $socialNetworks =  SocialNetwork::where('deleted_at', null)->get();
         $article = Article::findOrFail($id);
+
+        $socialNetworks =  SocialNetwork::where('deleted_at', null)
+            ->where('category_id', $article->category_id)
+            ->get();
+
         $comments = Comment::where('article_id', $id)
             ->where('approved', 1)
             ->get();

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('url');
+            $table->string('category_id');
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });

@@ -35,7 +35,7 @@
 
                         <div class="form-row margins-8px w-80 mt-4 row">
                             <div class="col-6">
-                                <label for="url">Link Video* (embed)</label>
+                                <label for="url">Url</label>
                                 <input id="url" type="text"
                                        class="form-control {{ $errors->has('url') ? ' is-invalid' : '' }}"
                                        name="url" placeholder="Url" value="{{$socialNetwork->url }}"
@@ -45,6 +45,23 @@
                                 @endif
                             </div>
                         </div>
+
+                        <div class="form-row margins-8px w-80 mt-4 row">
+                            <div class="col-6">
+                                <label for="category">Category*</label>
+                                <select id="category" name="category" class="form-select select2">
+                                    <option value="{{$socialNetwork->category_id}}">{{$socialNetwork->category->name}}</option>
+                                    @foreach($categories as $key => $category)
+                                        <option value="{{$key}}"> {{$category}}</option>
+                                    @endforeach
+                                </select>
+                                @if ($errors->has('category'))
+                                    <span
+                                        class="invalid-feedback d-block">{{ $errors->first('category') }}</span>
+                                @endif
+                            </div>
+                        </div>
+
 
 
                         <div class="required-fields text-right">
@@ -94,4 +111,14 @@
             </div>
         </div>
     </div>
+@endsection
+
+
+@section('endjs')
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+            $('select').select2({});
+        });
+    </script>
 @endsection
