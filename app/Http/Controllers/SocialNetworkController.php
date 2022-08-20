@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\SocialNetwork;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -28,13 +29,17 @@ class SocialNetworkController extends Controller
 
     public function create()
     {
-        return view('social-network.create');
+        $categories = Category::pluck('name', 'id');
+
+        return view('social-network.create')
+            ->with('categories', $categories);
     }
 
     public function store(Request $request)
     {
         $rules['name'] = 'required|string|max:255';
         $rules['url'] = 'required|string|max:255';
+        $rules['category'] = 'required|string|max:255';
 
         $validator = Validator::make($request->all(), $rules);
 
@@ -47,6 +52,7 @@ class SocialNetworkController extends Controller
         $socialNetwork = new SocialNetwork();
         $socialNetwork->name = $request->get('name');
         $socialNetwork->url = $request->get('url');
+        $socialNetwork->category_id = $request->get('category');
         $socialNetwork->save();
 
         return redirect('/social-network')->with('success', 'Social network added successfully.');
@@ -55,6 +61,8 @@ class SocialNetworkController extends Controller
 
     public function edit($id)
     {
+        $categories = Category::pluck('name', 'id');
+
         $socialNetwork = SocialNetwork::where('id', $id)
             ->first();
 
@@ -63,7 +71,8 @@ class SocialNetworkController extends Controller
         }
 
         return view('social-network.edit')
-            ->with('socialNetwork', $socialNetwork);
+            ->with('socialNetwork', $socialNetwork)
+            ->with('categories', $categories);
     }
 
     /**
@@ -80,6 +89,7 @@ class SocialNetworkController extends Controller
 
         $rules['name'] = 'required|string|max:255';
         $rules['url'] = 'required|string|max:255';
+        $rules['category'] = 'required|string|max:255';
 
 
         $validator = Validator::make($request->all(), $rules);
@@ -92,6 +102,7 @@ class SocialNetworkController extends Controller
 
         $socialNetwork->name = $request->get('name');
         $socialNetwork->url = $request->get('url');
+        $socialNetwork->category_id = $request->get('category');
         $socialNetwork->save();
 
         return redirect('/social-network')->with('success', 'Social network updated successfully.');

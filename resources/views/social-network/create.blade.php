@@ -36,13 +36,29 @@
 
                         <div class="form-row margins-8px w-80 mt-4 row">
                             <div class="col-6">
-                                <label for="url">Url</label>
+                                <label for="url">Url*</label>
                                 <input id="url" type="text"
                                        class="form-control {{ $errors->has('url') ? ' is-invalid' : '' }}"
                                        name="url" placeholder="Url" value="{{ old('url') }}"
                                        required_>
                                 @if ($errors->has('url'))
                                     <span class="invalid-feedback">{{ $errors->first('url') }}</span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-row margins-8px w-80 mt-4 row">
+                            <div class="col-6">
+                                <label for="category">Category*</label>
+                                <select id="category" name="category" class="form-select select2">
+                                    <option value=""> Select Category</option>
+                                    @foreach($categories  as $key => $name)
+                                        <option value="{{$key}}"> {{$name}}</option>
+                                    @endforeach
+                                </select>
+                                @if ($errors->has('category'))
+                                    <span
+                                        class="invalid-feedback d-block">{{ $errors->first('category') }}</span>
                                 @endif
                             </div>
                         </div>
@@ -64,3 +80,14 @@
         </div>
     </section>
 @endsection
+
+
+@section('endjs')
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+            $('select').select2({});
+        });
+    </script>
+@endsection
+

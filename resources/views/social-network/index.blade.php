@@ -23,6 +23,7 @@
                             <th scope="col">DATE</th>
                             <th scope="col">NAME</th>
                             <th scope="col">URL</th>
+                            <th scope="col">CATEGORY</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -31,6 +32,7 @@
                                 <td class="t-bold">{{$socialNetwork->updated_at->format('d-m-Y')}}</td>
                                 <td class="t-bold"><a href="{{route('SocialNetworkEdit' ,$socialNetwork->id)}}">{{$socialNetwork->name ? : "-"}}</a></td>
                                 <td class="t-bold">{{$socialNetwork->url}}</td>
+                                <td class="t-bold">{{$socialNetwork->category->name}}</td>
                             </tr>
                         @endforeach
                         </tbody>
