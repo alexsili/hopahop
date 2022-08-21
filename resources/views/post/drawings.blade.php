@@ -18,8 +18,13 @@
                                    class="blog-entry element-animate"
                                    data-animate-effect="fadeIn">
                                     <h2>{{substr(" $article->title", 0, 25)}}</h2>
-                                    <img class="img-thumbnail" src="uploads/images/{{$article->image}}"
-                                         alt="{{$article->title}}">
+                                    @if( (file_exists( public_path().'/uploads/images/'.$article->image)))
+                                        <img class="img-thumbnail" src="uploads/images/{{$article->image}}"
+                                             alt="{{$article->title}}">
+                                    @else
+                                        <img class="img-thumbnail" src="uploads/images/default.jpg"
+                                             alt="{{$article->title}}">
+                                    @endif
                                     <div class="blog-content-body text-center mt-2">
                                         <button class="btn btn-primary">Download</button>
                                     </div>

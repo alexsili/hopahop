@@ -18,8 +18,13 @@
                                     <div class="blog-content-body text-center">
                                         <h2>{{substr(" $article->title", 0, 25)}}</h2>
                                     </div>
-                                    <img class="img-thumbnail" src="uploads/images/{{$article->image}}"
-                                         alt="{{$article->title}}">
+                                    @if( (file_exists( public_path().'/uploads/images/'.$article->image)))
+                                        <img class="img-thumbnail" src="uploads/images/{{$article->image}}"
+                                             alt="{{$article->title}}">
+                                    @else
+                                        <img class="img-thumbnail" src="uploads/images/default.jpg"
+                                             alt="{{$article->title}}">
+                                    @endif
                                 </a>
                             </div>
                         @endforeach

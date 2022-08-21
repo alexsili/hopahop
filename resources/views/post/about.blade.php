@@ -14,8 +14,14 @@
                     <div class="row">
                         @foreach ($personages as $personage)
                             <div class="col-md-6 mt-5 menu-hoover">
-                                <img class="img-thumbnail" src="uploads/personages/{{$personage->image}}"
-                                     alt="{{$personage->title}}">
+
+                                @if( (file_exists( public_path().'/uploads/images/'.$personage->image)))
+                                    <img class="img-thumbnail" src="uploads/personages/{{$personage->image}}"
+                                         alt="{{$personage->title}}">
+                                @else
+                                    <img class="img-thumbnail" src="uploads/images/default.jpg"
+                                         alt="{{$personage->title}}">
+                                @endif
                             </div>
                         @endforeach
                     </div>

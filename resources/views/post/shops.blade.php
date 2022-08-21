@@ -14,13 +14,19 @@
                     <div class="row">
                         @foreach ($shops as $shop)
                             <div class="col-md-4 mt-5 menu-hoover">
-                                <a href="{{$shop->url}}" class="blog-entry element-animate" target="_blank" rel="noopener noreferrer"
+                                <a href="{{$shop->url}}" class="blog-entry element-animate" target="_blank"
+                                   rel="noopener noreferrer"
                                    data-animate-effect="fadeIn">
                                     <div class="blog-content-body text-center">
                                         <h2>{{substr(" $shop->title", 0, 25)}}</h2>
                                     </div>
-                                    <img class="img-thumbnail" src="uploads/shop/{{$shop->image}}"
-                                         alt="{{$shop->title}}">
+                                    @if( (file_exists( public_path().'/uploads/shop/'.$shop->image)))
+                                        <img class="img-thumbnail" src="uploads/shop/{{$shop->image}}"
+                                             alt="{{$shop->title}}">
+                                    @else
+                                        <img class="img-thumbnail" src="uploads/images/default.jpg"
+                                             alt="{{$shop->title}}">
+                                    @endif
                                 </a>
                             </div>
                         @endforeach

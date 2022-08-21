@@ -95,10 +95,13 @@
                                                         href="/uploads/images/{{ $article->image }}">{{ $article->image }}</a>
                                                 </td>
                                                 <td style="width:10%">
-                                                    <button type="button" class="btn btn-danger btn-rm"
-                                                            data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                        Delete
-                                                    </button>
+                                                    @if($article->category->name == 'drawings')
+                                                    @else
+                                                        <button type="button" class="btn btn-danger btn-rm"
+                                                                data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                            Delete
+                                                        </button>
+                                                    @endif
                                                 </td>
                                             </tr>
                                         </table>
