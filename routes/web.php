@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CookiesController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -13,7 +14,6 @@ Route::get('/sports', 'PostController@sport')->name('sports');
 Route::get('/about', 'PostController@about')->name('about');
 Route::get('/contact', 'PostController@contact')->name('contact');
 Route::get('/shops', 'PostController@shop')->name('shops');
-Route::post('/contactMessage', 'PostController@contactMessage')->name('contactMessage');
 Route::get('/article/{id}', 'PostController@singleArticle')->name('singleArticle');
 Route::get('/download-image/{id}', 'PostController@downloadDrawingImage')->name('downloadDrawingImage');
 
@@ -27,7 +27,11 @@ Route::get('/terms', function () {
 Route::get('/privacy', function () {
     return view('faq.privacy');
 });
-Route::post('/add-comment/{id}', 'CommentController@addComment')->name('addComment');
+
+Route::middleware('throttle:only_three_requests')->group(function () {
+    Route::post('/add-comment/{id}', 'CommentController@addComment')->name('addComment');
+    Route::post('/contactMessage', 'PostController@contactMessage')->name('contactMessage');
+});
 
 
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -48,14 +52,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/create', 'PersonageController@create')->name('personageCreate');
         Route::get('/{id}/edit', 'PersonageController@edit')->name('personageEdit');;
         Route::post('/delete-personage/{id}', 'PersonageController@deletePersonage')->name('deletePersonage');
-        Route::post('/delete-personage-image/{id}', 'PersonageController@deletePersonageImageFile')->name('deletePersonageImageFile');
+        Route::post('/delete-personage-image/{id}',
+            'PersonageController@deletePersonageImageFile')->name('deletePersonageImageFile');
     });
 
 
     Route::group(['prefix' => 'messages', 'middleware' => 'admin'], function () {
         Route::get('/', 'ContactMessagesController@index')->name('contactMessagesIndex');
         Route::get('/show/{id}', 'ContactMessagesController@show')->name('contactMessagesShow');
-        Route::post('/delete-message/{id}', 'ContactMessagesController@deleteContactMessage')->name('deleteContactMessage');
+        Route::post('/delete-message/{id}',
+            'ContactMessagesController@deleteContactMessage')->name('deleteContactMessage');
     });
 
     Route::group(['prefix' => 'comments', 'middleware' => 'admin'], function () {
@@ -85,6 +91,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::put('/{id}', 'SocialNetworkController@update')->name('SocialNetworkUpdate');
         Route::get('/create', 'SocialNetworkController@create')->name('SocialNetworkCreate');
         Route::get('/{id}/edit', 'SocialNetworkController@edit')->name('SocialNetworkEdit');;
-        Route::post('/delete-social-network/{id}', 'SocialNetworkController@deleteSocialNetwork')->name('deleteSocialNetwork');
+        Route::post('/delete-social-network/{id}',
+            'SocialNetworkController@deleteSocialNetwork')->name('deleteSocialNetwork');
     });
 });
+
+
+Route::get('/set-cookie', [CookiesController::class, 'setCookie']);
+Route::get('/get-cookie', [CookiesController::class, 'getCookie']);
+Route::get('/delete-cookie', [CookiesController::class, 'deleteCookie']);
